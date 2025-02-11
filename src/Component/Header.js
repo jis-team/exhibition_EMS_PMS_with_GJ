@@ -63,7 +63,7 @@ flex-wrap: nowrap;
 justify-content: center;
 align-items: flex-end;
 `;
-const Titletext = styled.text`
+const Titletext = styled.div`
   width: 500px;
   font-family: KIMM_B;
   font-size: 40px;

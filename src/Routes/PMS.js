@@ -1,7 +1,8 @@
 import Header from "../Component/Header";
 import styled from "styled-components";
-import PumpMoterLeft from "../Component/PumpMoterLeft"
-
+import PumpMoterLeft from "../Component/PumpMoterLeft";
+import PumpMoterMiddle from "../Component/PumpMoterMiddle";
+import {useState,useCallback} from "react";
 
 const Wrapper = styled.div`
     // width: 100%;
@@ -65,6 +66,12 @@ const TitletSetText = styled.span`
 
 
 function PMS(){
+    const [parentData,setParentData] = useState("1");
+
+    const testfunction = useCallback((data) => {
+        setParentData((prev)=>(prev !== data ? data:prev));
+    },[])
+   
     return(
         <Wrapper>
             <Headerclass>
@@ -72,11 +79,10 @@ function PMS(){
             </Headerclass>
             <PmsWrapper>
                 <Titleset>
-                    <TitletSetText>펌프 및 모터 - 정밀진단 </TitletSetText>
+                    <TitletSetText>펌프 및 모터 - 정밀진단</TitletSetText>
                 </Titleset>
-                <PumpMoterLeft/>
-                {/* <h1>PMS</h1>
-                <h2>hello world1</h2> */}
+                <PumpMoterLeft pumpnum={parentData} setPumpNum={testfunction}/>
+                <PumpMoterMiddle pumpnum={parentData} setPumpNum={testfunction}/>
             </PmsWrapper>
         </Wrapper>
         

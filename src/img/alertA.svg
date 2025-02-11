@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="634" height="279" viewBox="0 0 100% 100%">
+    <defs>
+        <filter id="xirsnpp2ca" x="0" y="0" width="634" height="279" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="1.5" result="blur"/>
+            <feFlood flood-color="#ffec58"/>
+            <feComposite operator="in" in2="blur"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="na8cupee4b" x="617.777" y="1.5" width="14.723" height="15.222" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="1" result="blur-2"/>
+            <feFlood flood-color="#b4dffa" flood-opacity=".502"/>
+            <feComposite operator="in" in2="blur-2"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="iqohk6ipwc" x="1.5" y="1.5" width="14.723" height="15.222" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="1" result="blur-3"/>
+            <feFlood flood-color="#b4dffa" flood-opacity=".502"/>
+            <feComposite operator="in" in2="blur-3"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="uspo182sxd" x="617.777" y="262.278" width="14.723" height="15.222" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="1" result="blur-4"/>
+            <feFlood flood-color="#b4dffa" flood-opacity=".502"/>
+            <feComposite operator="in" in2="blur-4"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+        <filter id="vq3akse2ye" x="1.5" y="262.278" width="14.723" height="15.222" filterUnits="userSpaceOnUse">
+            <feOffset/>
+            <feGaussianBlur stdDeviation="1" result="blur-5"/>
+            <feFlood flood-color="#b4dffa" flood-opacity=".502"/>
+            <feComposite operator="in" in2="blur-5"/>
+            <feComposite in="SourceGraphic"/>
+        </filter>
+    </defs>
+    <g data-name="그룹 104107">
+        <g style="filter:url(#xirsnpp2ca)">
+            <g data-name="패스 72194" style="fill:rgba(255, 236, 88,.1)" transform="translate(-.001 .002)">
+                <path d="M624.75 269.75H.25V.25h624.5v269.5z" style="stroke:none" transform="translate(4.5 4.5)"/>
+                <path d="M.5.5v269h624V.5H.5M0 0h625v270H0V0z" style="fill:#ffec58;stroke:none" transform="translate(4.5 4.5)"/>
+            </g>
+        </g>
+        <g data-name="그룹 96572">
+            <g style="filter:url(#na8cupee4b)">
+                <path data-name="패스 72196" d="M0 0h8.723v9.222L6.325 2.5z" transform="translate(620.78 4.5)" style="fill:#ffec58"/>
+            </g>
+            <g style="filter:url(#iqohk6ipwc)">
+                <path data-name="패스 72196" d="M0 0h9.222v8.723l-2.536-6.36z" transform="rotate(-90 9.11 4.61)" style="fill:#ffec58"/>
+            </g>
+        </g>
+        <g data-name="그룹 96576">
+            <g style="filter:url(#uspo182sxd)" transform="translate(0 -.002)">
+                <path data-name="패스 72196" d="M0 9.222h8.723V0l-2.4 6.723z" transform="translate(620.78 265.28)" style="fill:#ffec58"/>
+            </g>
+            <g style="filter:url(#vq3akse2ye)" transform="translate(0 -.002)">
+                <path data-name="패스 72196" d="M0 8.723h9.222V0L6.687 6.359z" transform="rotate(90 -126.03 139.25)" style="fill:#ffec58"/>
+            </g>
+        </g>
+    </g>
+</svg>

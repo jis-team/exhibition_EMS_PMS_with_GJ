@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Test from "./Routes/test";
+
 import EMS from "./Routes/EMS";
 import PMS from "./Routes/PMS";
 import Home from "./Routes/Home";
@@ -23,16 +23,12 @@ const GlobalStyle = createGlobalStyle`
 function App() {
   return (
     <BrowserRouter>
-    <GlobalStyle />
+      <GlobalStyle />
       <Routes>
-        <>
-          {/* <Route path="/tv/*" element={<Tv />}></Route>
-          <Route path="/search/*" element={<Search />}></Route> */}
-          <Route path="/test1/*" element={<Test />}></Route>
-          <Route path="/PMS/*" element={<PMS />}></Route>
+         
+          <Route path="/PMS" element={<PMS />}></Route>
           <Route path="/EMS/*" element={<EMS />}></Route>
           <Route path="/*" element={<Home />}></Route>
-        </>
       </Routes>
   </BrowserRouter>
   );

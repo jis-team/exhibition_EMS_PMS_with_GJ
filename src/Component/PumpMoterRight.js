@@ -110,7 +110,7 @@ const PMSGraph = styled.div`
     bottom: 10px;
     grid-area: graph;
     width: 406px;
-    height: 410px;
+    // height: 410px;
 `
 const alertAnimation = keyframes`
   0% { offset-distance: 0%; opacity: 0; }

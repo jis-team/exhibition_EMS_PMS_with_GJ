@@ -132,7 +132,7 @@ function PumpImpellerChart(props){
 
         useEffect(()=>{
           setpumpImpellerOption((prevOptions)=>{
-            const dataArray = Array(24*7).fill(Number(props.pumpnum))
+            const dataArray = Array(24*7).fill(Number(props.pumpnum)%8)
             const dataVibOne = dataArray.map((value,i)=>{
               return [Date.UTC(
                 Number(new Date().getFullYear()),
@@ -160,7 +160,7 @@ function PumpImpellerChart(props){
               series:[
                 
               {
-                  name : '펌프 임펠러러',
+                  name : '펌프 임펠러',
                   data : dataVibOne,
                   color: '#8098ff'
               },

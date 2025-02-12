@@ -4,14 +4,12 @@ import HighchartsReact from "highcharts-react-official";
 import {useState,useEffect} from "react";
 
 
-function PumpVibrationChart(props){
+function MoterTempChart(props){
         const [alertvalue, setAlertvalue] = useState(0)
-        
-        const vibalertA = 6
-        const vibalertB = 7.5
-        const vibalertC = 9
 
-        const pumpVibrationOption={
+        const MoterTempC = 30
+
+        const MoterTempOption={
             chart: {
              type: 'spline',
              backgroundColor: false,
@@ -21,7 +19,7 @@ function PumpVibrationChart(props){
            title: {
              useHTML: true,
              floating: true,
-             text: '펌프 부하/반부하 총진동량',
+             text: '모터 권선온도',
              style: {
                color: 'transparent'
              }
@@ -49,7 +47,7 @@ function PumpVibrationChart(props){
              valueDecimals: 3,
              xDateFormat: '%Y-%m-%d %H:%M:%S',
              useHTML: true,
-             valueSuffix: ' rms/mm/s'
+             
            },
            xAxis: {
              title: {
@@ -70,7 +68,7 @@ function PumpVibrationChart(props){
            yAxis: {
              title: {
                align: 'middle',
-               text: 'rms/mm/s',
+               text: '인자',
                useHTML: true,
                offset: 35,
                rotation: 90,
@@ -85,7 +83,7 @@ function PumpVibrationChart(props){
              },
              lineColor: 'rgba(157, 191, 255, 0.5)',
              lineWidth: 1,
-             max: 10,
+             max: 30,
              min: 0,
              gridLineColor: false,
              labels: {
@@ -96,45 +94,10 @@ function PumpVibrationChart(props){
                }
              },
              plotLines:[
-                // 주의 
-                {
-                    color: '#ffec58',
-                    dashStyle: 'shortDash',
-                    value: vibalertA,
-                    width: 1,
-                    label: {
-                      text: '주의',
-                      color: '#ffec58',
-                      textAlign: 'left',
-                      x: 330,
-                      y: -3,
-                      style: {
-                        color: '#ffec58',
-                        fontSize: 6
-                      }
-                    }
-                  },
-                  {
-                    color: '#ff7600',
-                    dashStyle: 'shortDash',
-                    value: vibalertB,
-                    width: 1,
-                    label: {
-                      text: '경고',
-                      color: '#ff7600',
-                      textAlign: 'left',
-                      x: 330,
-                      y: -3,
-                      style: {
-                        color: '#ff7600',
-                        fontSize: 6
-                      }
-                    }
-                  },
                   {
                     color: '#ff0000',
                     dashStyle: 'shortDash',
-                    value: vibalertC,
+                    value: MoterTempC,
                     width: 1,
                     label: {
                       text: '결함',
@@ -165,12 +128,11 @@ function PumpVibrationChart(props){
            exporting: false
         }
 
-        const [pumpVibrationOptions,setpumpVibrationOption] = useState(pumpVibrationOption)
-
+        const [MoterTempOptions,setMoterTempOption] = useState(MoterTempOption)
 
         useEffect(()=>{
-          setpumpVibrationOption((prevOptions)=>{
-            const dataArray = Array(24*7).fill(Number(props.pumpnum)%6)
+          setMoterTempOption((prevOptions)=>{
+            const dataArray = Array(24*7).fill(Number(props.pumpnum)+12)
             const dataVibOne = dataArray.map((value,i)=>{
               return [Date.UTC(
                 Number(new Date().getFullYear()),
@@ -178,79 +140,89 @@ function PumpVibrationChart(props){
                 Number(new Date().getDate()),
                 Number(new Date().getHours()),
                 0)-(i*1000*60*60),
-                value+(value*0.1)+((Math.random()*0.5)*(props.pumpnum))]})
+                parseFloat(((value)+(value*0.1)+((Math.random()*2))).toFixed(3))+(i%20===0? 4:0)]})
                 .sort((a, b) => a[0] - b[0]);
-
+            
             const dataVibTwo = dataArray.map((value,i)=>{
-              return [Date.UTC(
-                Number(new Date().getFullYear()),
-                Number(new Date().getMonth()),
-                Number(new Date().getDate()),
-                Number(new Date().getHours()),
-                0)-(i*1000*60*60),
-                value+((Math.random()*0.5)*(props.pumpnum))]})
-                .sort((a, b) => a[0] - b[0]);
-
+                return [Date.UTC(
+                    Number(new Date().getFullYear()),
+                    Number(new Date().getMonth()),
+                    Number(new Date().getDate()),
+                    Number(new Date().getHours()),
+                    0)-(i*1000*60*60),
+                    parseFloat(((value)+2+(value*0.1)+((Math.random()*2))).toFixed(3))+(i%20===0? 4:0)]})
+                    .sort((a, b) => a[0] - b[0]);
+            const dataVibThree = dataArray.map((value,i)=>{
+                return [Date.UTC(
+                    Number(new Date().getFullYear()),
+                    Number(new Date().getMonth()),
+                    Number(new Date().getDate()),
+                    Number(new Date().getHours()),
+                    0)-(i*1000*60*60),
+                    parseFloat(((value)+4+(value*0.1)+((Math.random()*2))).toFixed(3))+(i%20===0? 4:0)]})
+                            .sort((a, b) => a[0] - b[0]);
+            
             // 알람 팝업
             // 부하 총진동량    
             const dataAlert = dataVibOne.map((value)=>{
-              if (vibalertC< value[1]) {
-                return 3;
-              } else if (vibalertB< value[1]){
-                return 2;
-              } else if (vibalertA< value[1]){
-                return 1;
-              } else {
-                return 0;
-              }
-            })
-            // 반부하 총진동량    
+                if (MoterTempC< value[1]) {
+                  return 3;
+                }   else {
+                  return 0;
+                }
+              })
             const dataAlert2 = dataVibTwo.map((value)=>{
-              if (vibalertC< value[1]) {
+            if (MoterTempC<= value[1]) {
                 return 3;
-              } else if (vibalertB< value[1]){
-                return 2;
-              } else if (vibalertA< value[1]){
-                return 1;
-              } else {
+            }  else {
                 return 0;
-              }
+            }
             })
-            
-            setAlertvalue(Math.max(...dataAlert)>Math.max(...dataAlert2)? Math.max(...dataAlert):Math.max(...dataAlert2))
+            const dataAlert3 = dataVibThree.map((value)=>{
+                if (MoterTempC<= value[1]) {
+                    return 3;
+                }  else {
+                    return 0;
+                }
+            })
+
+            setAlertvalue(Math.max(...dataAlert,...dataAlert2,...dataAlert3))
 
             const options = {
               ...prevOptions, 
               series:[
                 
               {
-                  name : '부하 총진동량',
+                  name : 'R',
                   data : dataVibOne,
                   color: '#8098ff'
               },
               {
-                name : '반부하 총진동량',
+                name : 'S',
                 data : dataVibTwo,
+                color: '#ffe201'
+            },
+            {
+                name : 'T',
+                data : dataVibThree,
                 color: '#7ed885'
-            }
+            },
             ]
             };
           return options
           })
-        },[props.pumpnum,alertvalue])
-
-      useEffect(()=>{
-  
-        props.Vibalertfunction(alertvalue)
-      },[alertvalue,props])
-    
-      
+        },[props.pumpnum])
+        
+        useEffect(()=>{
+        
+            props.Tempalertfunction(alertvalue)
+          },[alertvalue,props])
         
     return(
-            <HighchartsReact highcharts={Highcharts} options={pumpVibrationOptions} />
+            <HighchartsReact highcharts={Highcharts} options={MoterTempOptions} />
             // <h2>{props.testdata}</h2>
             
     )
 
 }
-export default PumpVibrationChart;
+export default MoterTempChart;

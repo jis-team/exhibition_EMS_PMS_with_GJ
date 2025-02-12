@@ -3,15 +3,19 @@ import { css,keyframes } from "styled-components";
 import {useState,useCallback,useEffect} from "react";
 
 // chart
-import PumpVibrationChart from "./PmsChart/PumpVibrationchart.js";
-import PumpBearingChart from "./PmsChart/pumpBearingchart.js";
-import PumpImpellerChart from "./PmsChart/pumpImpellerchart.js";
-import PumpCavitationChart from "./PmsChart/pumpcavitationchart.js";
+import MoterVibrationChart from "./PmsChart/moterVibrationchart.js";
+import MoterBearingChart from "./PmsChart/moterBearingchart.js";
+import MoterRoterChart from "./PmsChart/moterRoterchart.js";
+import MoterTempChart from "./PmsChart/moterTempchart.js";
 
 // alert 
 import alertA from '../img/alertA.svg';
 import alertB from '../img/alertB.svg';
 import alertC from '../img/alertC.svg';
+
+
+
+
 
 const Text = css`
     position: relative;
@@ -35,8 +39,8 @@ const Text = css`
         padding: 0 0 0 4px;
     }
 `;
-const PmsConponentLeft =styled.div`
-    grid-area: left;
+const PmsConponentRight =styled.div`
+    grid-area: right;
     position: relative;
     height: 635.5px;
     display: grid;
@@ -136,17 +140,17 @@ const Alertimg = styled.div`
     }
 `
 
-function PumpMoterLeft(props){
+function PumpMoterRight(props){
     const [vibalertValue,setVibalertValue] = useState("");
     const [bearalertValue,setBearalertValue] = useState("");
-    const [impalertValue,setImpalertValue] = useState("");
-    const [cavalertValue,setCavalertValue] = useState("");
+    const [roteralertValue,setRoteralertValue] = useState("");
+    const [tempalertValue,setTempalertValue] = useState("");
 
     // const [pmsStats,setPmsStats] = useState([]);
 
     useEffect(()=>{
-        props.pmsStatsfunction({1:vibalertValue,2:bearalertValue,3:impalertValue,4:cavalertValue})
-    },[vibalertValue,bearalertValue,impalertValue,cavalertValue,props])
+        props.pmsStatsfunction({8:vibalertValue,9:bearalertValue,10:roteralertValue,11:tempalertValue})
+    },[vibalertValue,bearalertValue,roteralertValue,tempalertValue,props])
 
     const Vibalertfunction = useCallback((data) => {
         let alertvalueStr = '' 
@@ -172,7 +176,7 @@ function PumpMoterLeft(props){
         setBearalertValue(alertvalueStr)
     },[])
 
-    const Impalertfunction = useCallback((data) => {
+    const Roteralertfunction = useCallback((data) => {
         let alertvalueStr = '' 
         if (data === 3){
             alertvalueStr = 'alarm'
@@ -181,10 +185,10 @@ function PumpMoterLeft(props){
         } else if (data===1){
             alertvalueStr = 'caution'
         } 
-        setImpalertValue(alertvalueStr)
+        setRoteralertValue(alertvalueStr)
     },[])
 
-    const Cavalertfunction = useCallback((data) => {
+    const Tempalertfunction = useCallback((data) => {
         let alertvalueStr = '' 
         if (data === 3){
             alertvalueStr = 'alarm'
@@ -193,60 +197,60 @@ function PumpMoterLeft(props){
         } else if (data===1){
             alertvalueStr = 'caution'
         } 
-        setCavalertValue(alertvalueStr)
+        setTempalertValue(alertvalueStr)
     },[])
    
     return(
-        <PmsConponentLeft>
+        <PmsConponentRight>
             <Container className = 'container_one'>
                 <Alertimg className={vibalertValue}></Alertimg>
-                <TitletextPMS className='title'>펌프
+                <TitletextPMS className='title'>모터
                     <SubTitleTextPMS className='subtitle'>부하/반부하 총진동량{vibalertValue}</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>
                 <PMSGraph>
-                    <PumpVibrationChart pumpnum={props.pumpnum} Vibalertfunction={Vibalertfunction} />
+                    <MoterVibrationChart pumpnum={props.pumpnum} Vibalertfunction={Vibalertfunction} />
                 </PMSGraph>
             </Container>
             <Container className = 'container_two'>
                 <Alertimg className={bearalertValue}></Alertimg>
-                <TitletextPMS className='title'>펌프
+                <TitletextPMS className='title'>모터
                     <SubTitleTextPMS className='subtitle'>부하/반부하 베어링 결함</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>
                 <PMSGraph>
-                    <PumpBearingChart pumpnum={props.pumpnum} Bearalertfunction={Bearalertfunction}/>
+                    <MoterBearingChart pumpnum={props.pumpnum} Bearalertfunction={Bearalertfunction}/>
                 </PMSGraph>
             </Container>
             <Container className = 'container_three'>
-                <Alertimg className={impalertValue}></Alertimg>
-                <TitletextPMS className='title'>펌프
-                    <SubTitleTextPMS className='subtitle'>임펠러 결함</SubTitleTextPMS>
+                <Alertimg className={roteralertValue}></Alertimg>
+                <TitletextPMS className='title'>모터
+                    <SubTitleTextPMS className='subtitle'>회전자 결함</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>
                 <PMSGraph>
-                    <PumpImpellerChart pumpnum={props.pumpnum} Impalertfunction={Impalertfunction}/>
+                    <MoterRoterChart pumpnum={props.pumpnum} Roteralertfunction={Roteralertfunction}/>
                 </PMSGraph>
             </Container>
             <Container className = 'container_four'>
-                <Alertimg className={cavalertValue}></Alertimg>
-                <TitletextPMS className='title'>펌프
-                    <SubTitleTextPMS className='subtitle'>케비테이션 발생</SubTitleTextPMS>
+                <Alertimg className={tempalertValue}></Alertimg>
+                <TitletextPMS className='title'>모터
+                    <SubTitleTextPMS className='subtitle'>권선 온도</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>
                 <PMSGraph>
-                    <PumpCavitationChart pumpnum={props.pumpnum} Cavalertfunction={Cavalertfunction}/>
+                    <MoterTempChart pumpnum={props.pumpnum} Tempalertfunction={Tempalertfunction}/>
                 </PMSGraph>
             </Container>
            
             
-        </PmsConponentLeft>
+        </PmsConponentRight>
         
     )
 
 }
-export default PumpMoterLeft;
+export default PumpMoterRight;

@@ -118,7 +118,7 @@ function PMS(){
         if (pmsStats === '' && pmsStats1 === '') {setPmsStatsF(pmsStats2)}
         else if (pmsStats1 === '') {setPmsStatsF(pmsStats)}
         else if (pmsStats === '') {setPmsStatsF(pmsStats1)}
-        else {setPmsStatsF(()=>{switch (Math.floor(Math.random()*2)) {case 0: return pmsStats; case 1: return pmsStats1; default: return pmsStats } })}
+        else {setPmsStatsF(()=>{switch (Math.floor(Math.random()*3)) {case 0: return pmsStats; case 1: return pmsStats1; case 2: return pmsStats2; default: return pmsStats } })}
     },[pmsStats,pmsStats1,pmsStats2])
 
     // 1번 Dataset조회 및 값 확인하여 상태값 설정하기 -> 2번 Dataset 조회 및 값 확인하여 상태값 설정하기 

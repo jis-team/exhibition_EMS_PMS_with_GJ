@@ -7,7 +7,7 @@ import {useState,useEffect} from "react";
 function PumpCavitationChart(props){
         const [alertvalue, setAlertvalue] = useState(0)
 
-        const CavalertC = 1.2
+        const CavalertC = 1.0
 
         const pumpCavitationOption={
             chart: {
@@ -132,7 +132,7 @@ function PumpCavitationChart(props){
 
         useEffect(()=>{
           setpumpCavitationOption((prevOptions)=>{
-            const dataArray = Array(24*7).fill(Number(props.pumpnum))
+            const dataArray = Array(24*7).fill(Number(props.pumpnum)%8)
             const dataVibOne = dataArray.map((value,i)=>{
               return [Date.UTC(
                 Number(new Date().getFullYear()),

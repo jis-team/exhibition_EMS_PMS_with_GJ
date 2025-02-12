@@ -2,11 +2,10 @@ import styled from "styled-components";
 import { css,keyframes } from "styled-components";
 import {useState,useCallback,useEffect} from "react";
 
-// chart
-import PumpVibrationChart from "./PmsChart/PumpVibrationchart.js";
-import PumpBearingChart from "./PmsChart/pumpBearingchart.js";
-import PumpImpellerChart from "./PmsChart/pumpImpellerchart.js";
-import PumpCavitationChart from "./PmsChart/pumpcavitationchart.js";
+//chart
+import PumpUnbalancechart from "./PmsChart/pumpUnbalancechart.js";
+import PumpMisalignmentchart from "./PmsChart/pumpMisalignmentchart.js";
+import PumpBTempchart from "./PmsChart/pumpBTempchart.js";
 
 // alert 
 import alertA from '../img/alertA.svg';
@@ -35,42 +34,42 @@ const Text = css`
         padding: 0 0 0 4px;
     }
 `;
-const PmsConponentLeft =styled.div`
-    grid-area: left;
+
+
+
+const PmsConponentBottom =styled.div`
+    grid-area: bottom;
     position: relative;
-    height: 635.5px;
+    width: 1920px;
+    height : 280px;
+    margin-top:30px;
     display: grid;
-    grid-template-rows: repeat(7, 130.5px 33.5px 130.5px 33.5px 130.5px 33.5px 130.5px);
+    grid-template-columns: repeat(3, 1fr 1fr 1fr);
     grid-auto-flow: dense;
     grid-template-areas:
-        "one"
-        "."
-        "two"
-        "."
-        "three"
-        "."
-        "four";
+        "one two three";
 `
 
 const Container = styled.div`
     position: relative;
     display: grid;
+    width : 631px;
     grid-template-rows: 28.5px 102px;
     grid-auto-flow: dense;
     grid-template-areas:
       "title"
       "graph";
-    &.container_one{
-        grid-area: one;
+    &__one {
+      grid-area: one;
     }
-    &.container_two{
-        grid-area: two;
+    &__two {
+      grid-area: two;
     }
-    &.container_three{
-        grid-area: three;
+    &__three {
+      grid-area: three;
     }
-    &.container_four{
-        grid-area: four;
+    &__four {
+      grid-area: four;
     }
 `
 
@@ -87,6 +86,7 @@ const TitletextPMS =styled.div`
 const SubTitleTextPMS = styled.span`
     ${Text}
 `
+
 const TitleBorderPMS = styled.div`
     position: absolute;
     left: 0;
@@ -100,14 +100,16 @@ const TitleBorderPMS = styled.div`
         bottom : 0;    
     }
 `
+
 const PMSGraph = styled.div`
     position: relative;
     left: 50px;
     bottom: 10px;
     grid-area: graph;
-    width: 406px;
-    height: 410px;
+    width: 566px;
+    height: 226px;
 `
+
 const alertAnimation = keyframes`
   0% { offset-distance: 0%; opacity: 0; }
   10% { opacity: 0.5; } 25% { opacity: 1; }
@@ -119,8 +121,8 @@ const Alertimg = styled.div`
     position: absolute;
     top: -5px;
     left: 35px;
-    width: 465px;
-    height: 160px;
+    width: 590px;
+    height: 245px;
     background-size: 100% 100%;
     background-repeat: no-repeat;
     animation: ${alertAnimation} 2s linear normal infinite;
@@ -136,117 +138,96 @@ const Alertimg = styled.div`
     }
 `
 
-function PumpMoterLeft(props){
-    const [vibalertValue,setVibalertValue] = useState("");
-    const [bearalertValue,setBearalertValue] = useState("");
-    const [impalertValue,setImpalertValue] = useState("");
-    const [cavalertValue,setCavalertValue] = useState("");
+function PumpMoterBottom(props){
+    const [UnbalanceValue,setUnbalanceValue] = useState("");
+    const [MisalignmentValue,setMisalignmentValue] = useState("");
+    const [BTempValue,setBTempValue] = useState("");
+    const Unbalancefunction = useCallback((data) => {
+        let alertvalueStr = '' 
+        if (data === 3){
+            alertvalueStr = 'alarm'
+        } else if (data===2){
+            alertvalueStr = 'warning'
+        } else if (data===1){
+            alertvalueStr = 'caution'
+        } 
+        setUnbalanceValue(alertvalueStr)
 
-    // const [pmsStats,setPmsStats] = useState([]);
+    },[])
+
+    const Misalingmentfunction = useCallback((data) => {
+        let alertvalueStr = '' 
+        if (data === 3){
+            alertvalueStr = 'alarm'
+        } else if (data===2){
+            alertvalueStr = 'warning'
+        } else if (data===1){
+            alertvalueStr = 'caution'
+        } 
+        setMisalignmentValue(alertvalueStr)
+
+    },[])
+
+    const BTempfunction = useCallback((data) => {
+        let alertvalueStr = '' 
+        if (data === 3){
+            alertvalueStr = 'alarm'
+        } else if (data===2){
+            alertvalueStr = 'warning'
+        } else if (data===1){
+            alertvalueStr = 'caution'
+        } 
+        setBTempValue(alertvalueStr)
+
+    },[])
 
     useEffect(()=>{
-        props.pmsStatsfunction({1:vibalertValue,2:bearalertValue,3:impalertValue,4:cavalertValue})
-    },[vibalertValue,bearalertValue,impalertValue,cavalertValue,props])
+        // console.log(BTempValue)
+        props.pmsStatsfunction({5:UnbalanceValue,6:MisalignmentValue,7:BTempValue})
+    },[UnbalanceValue,MisalignmentValue,BTempValue,props])
 
-    const Vibalertfunction = useCallback((data) => {
-        let alertvalueStr = '' 
-        if (data === 3){
-            alertvalueStr = 'alarm'
-        } else if (data===2){
-            alertvalueStr = 'warning'
-        } else if (data===1){
-            alertvalueStr = 'caution'
-        } 
-        setVibalertValue(alertvalueStr)
+    // useEffect(()=>{
+    //     props.pmsStatsfunction({1:vibalertValue,2:bearalertValue,3:impalertValue,4:cavalertValue})
+    // },[vibalertValue,bearalertValue,impalertValue,cavalertValue,props])
 
-    },[])
-    const Bearalertfunction = useCallback((data) => {
-        let alertvalueStr = '' 
-        if (data === 3){
-            alertvalueStr = 'alarm'
-        } else if (data===2){
-            alertvalueStr = 'warning'
-        } else if (data===1){
-            alertvalueStr = 'caution'
-        } 
-        setBearalertValue(alertvalueStr)
-    },[])
-
-    const Impalertfunction = useCallback((data) => {
-        let alertvalueStr = '' 
-        if (data === 3){
-            alertvalueStr = 'alarm'
-        } else if (data===2){
-            alertvalueStr = 'warning'
-        } else if (data===1){
-            alertvalueStr = 'caution'
-        } 
-        setImpalertValue(alertvalueStr)
-    },[])
-
-    const Cavalertfunction = useCallback((data) => {
-        let alertvalueStr = '' 
-        if (data === 3){
-            alertvalueStr = 'alarm'
-        } else if (data===2){
-            alertvalueStr = 'warning'
-        } else if (data===1){
-            alertvalueStr = 'caution'
-        } 
-        setCavalertValue(alertvalueStr)
-    },[])
-   
     return(
-        <PmsConponentLeft>
-            <Container className = 'container_one'>
-                <Alertimg className={vibalertValue}></Alertimg>
-                <TitletextPMS className='title'>펌프
-                    <SubTitleTextPMS className='subtitle'>부하/반부하 총진동량{vibalertValue}</SubTitleTextPMS>
+        <PmsConponentBottom>
+            <Container className = 'container_one'> 
+            <Alertimg className={UnbalanceValue}></Alertimg>
+            <TitletextPMS className='title'>펌프모터
+                    <SubTitleTextPMS className='subtitle'>축정렬 불량{props.pumpnum}</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>
                 <PMSGraph>
-                    <PumpVibrationChart pumpnum={props.pumpnum} Vibalertfunction={Vibalertfunction} />
+                    <PumpUnbalancechart pumpnum={props.pumpnum} Unbalancefunction={Unbalancefunction} />
                 </PMSGraph>
             </Container>
-            <Container className = 'container_two'>
-                <Alertimg className={bearalertValue}></Alertimg>
-                <TitletextPMS className='title'>펌프
-                    <SubTitleTextPMS className='subtitle'>부하/반부하 베어링 결함</SubTitleTextPMS>
+            <Container className = 'container_two'> 
+            <Alertimg className={MisalignmentValue}></Alertimg>
+            <TitletextPMS className='title'>펌프모터
+                    <SubTitleTextPMS className='subtitle'>질량 불평형</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>
                 <PMSGraph>
-                    <PumpBearingChart pumpnum={props.pumpnum} Bearalertfunction={Bearalertfunction}/>
+                    <PumpMisalignmentchart pumpnum={props.pumpnum} Misalingmentfunction={Misalingmentfunction} />
                 </PMSGraph>
             </Container>
-            <Container className = 'container_three'>
-                <Alertimg className={impalertValue}></Alertimg>
-                <TitletextPMS className='title'>펌프
-                    <SubTitleTextPMS className='subtitle'>임펠러 결함</SubTitleTextPMS>
+            <Container className = 'container_three'> 
+            <Alertimg className={BTempValue}></Alertimg>
+            <TitletextPMS className='title'>펌프모터
+                    <SubTitleTextPMS className='subtitle'>베어링 온도</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>
                 <PMSGraph>
-                    <PumpImpellerChart pumpnum={props.pumpnum} Impalertfunction={Impalertfunction}/>
+                    <PumpBTempchart pumpnum={props.pumpnum} BTempfunction={BTempfunction} />
                 </PMSGraph>
             </Container>
-            <Container className = 'container_four'>
-                <Alertimg className={cavalertValue}></Alertimg>
-                <TitletextPMS className='title'>펌프
-                    <SubTitleTextPMS className='subtitle'>케비테이션 발생</SubTitleTextPMS>
-                    <TitleBorderPMS className='top'></TitleBorderPMS>
-                    <TitleBorderPMS className='bottom'></TitleBorderPMS>
-                </TitletextPMS>
-                <PMSGraph>
-                    <PumpCavitationChart pumpnum={props.pumpnum} Cavalertfunction={Cavalertfunction}/>
-                </PMSGraph>
-            </Container>
-           
-            
-        </PmsConponentLeft>
-        
+
+        </PmsConponentBottom>
     )
 
 }
-export default PumpMoterLeft;
+export default PumpMoterBottom;

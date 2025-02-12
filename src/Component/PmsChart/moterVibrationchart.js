@@ -4,14 +4,14 @@ import HighchartsReact from "highcharts-react-official";
 import {useState,useEffect} from "react";
 
 
-function PumpVibrationChart(props){
+function MoterVibrationChart(props){
         const [alertvalue, setAlertvalue] = useState(0)
         
         const vibalertA = 6
         const vibalertB = 7.5
         const vibalertC = 9
 
-        const pumpVibrationOption={
+        const moterVibrationOption={
             chart: {
              type: 'spline',
              backgroundColor: false,
@@ -165,12 +165,12 @@ function PumpVibrationChart(props){
            exporting: false
         }
 
-        const [pumpVibrationOptions,setpumpVibrationOption] = useState(pumpVibrationOption)
+        const [moterVibrationOptions,setmoterVibrationOption] = useState(moterVibrationOption)
 
 
         useEffect(()=>{
-          setpumpVibrationOption((prevOptions)=>{
-            const dataArray = Array(24*7).fill(Number(props.pumpnum)%6)
+          setmoterVibrationOption((prevOptions)=>{
+            const dataArray = Array(24*7).fill(Number(props.pumpnum)*0.01)
             const dataVibOne = dataArray.map((value,i)=>{
               return [Date.UTC(
                 Number(new Date().getFullYear()),
@@ -247,10 +247,10 @@ function PumpVibrationChart(props){
       
         
     return(
-            <HighchartsReact highcharts={Highcharts} options={pumpVibrationOptions} />
+            <HighchartsReact highcharts={Highcharts} options={moterVibrationOptions} />
             // <h2>{props.testdata}</h2>
             
     )
 
 }
-export default PumpVibrationChart;
+export default MoterVibrationChart;

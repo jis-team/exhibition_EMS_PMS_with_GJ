@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/exhibition_EMS_PMS_with_GJ">
       <GlobalStyle />
       <Routes>
          

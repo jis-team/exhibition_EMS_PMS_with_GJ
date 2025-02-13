@@ -304,7 +304,7 @@ const EvntBtn = styled.div`
     font-style: normal;
     letter-spacing: normal;
     text-align: center;
-    color: #b4dffa;
+    color:rgb(220, 86, 86);
     margin: 0 35px 0 0;
     &.invisible {
       visibility: hidden;
@@ -351,8 +351,8 @@ const Popup = styled.div`
     background: rgb(112, 9, 5);
     border-radius: 13px;
     position: fixed;
-    top: 50%;
-    left: 50%;
+    top: 40%;
+    left: 38%;
     transform: translate(-50%, -50%);
     z-index: 1000;
     user-select: none; // ✅ 드래그할 때 선택 방지
@@ -584,8 +584,7 @@ function eachPower(totalPower) {
 }
 
 function PowerPeakRight() {
-    // 업데이트 시간
-    const updateTime = 1000 * 10
+    const updateTime = 1000 * 30 // 업데이트 시간
     const [currentTime, setCurrentTime] = 
         useState(Date.UTC(Number(new Date().getFullYear()), Number(new Date().getMonth()), Number(new Date().getDate()), 
                             Number(new Date().getHours()), Number(new Date().getMinutes())))
@@ -611,7 +610,8 @@ function PowerPeakRight() {
     // 드레그 팝업을 위한 정의
     const nodeRef = useRef(null); // useRef를 활용하여 직접 DOM을 참조
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    console.log("[EMS-Right][%d:%d:%d] run", new Date().getHours(), new Date().getMinutes(), new Date().getSeconds());
+    
+    // console.log("[EMS-Right][%d:%d:%d] run", new Date().getHours(), new Date().getMinutes(), new Date().getSeconds());
 
     const PopupOpen = () => {
         const newCurVal = (gjpeakvalue + (Math.random() * 20)).toFixed(2)
@@ -629,7 +629,7 @@ function PowerPeakRight() {
                     "Event Button Clicked", newCurVal);
         setTimeout(()=>{
             setIsPopupOpen(true);
-        }, 0); // 2초 후에 팝업 띄움
+        }, 1000); // 2초 후에 팝업 띄움
     };
     
     const PopupClose = () => {
@@ -710,8 +710,6 @@ function PowerPeakRight() {
                             setGjpowervalue(Number(currPower)) // 공주정 현재 사용량
                             setFormattedData(applyNewCurrPower);
 
-                            console.log("[EMS-Right][%d:%d:%d] %s: %f | %f", new Date().getHours(), new Date().getMinutes(), new Date().getSeconds(),
-                                "if (gjpowervalue < gjpeakvalue)", gjpowervalue, gjpeakvalue);
                             if (gjpowervalue < gjpeakvalue){
                                 setIsPopupOpen(false);
                             }
@@ -752,14 +750,14 @@ function PowerPeakRight() {
     // formattedData 변경마다 업데이트, 전력 예측 데이터 난수로 수정 
     // formattedData 1->2일 변경 후, predData 수정
     useEffect(() => {
-        console.log("[EMS-Right][%d:%d:%d] %s: ", new Date().getHours(), new Date().getMinutes(), new Date().getSeconds(),
-            "before predData", predData);
+        // console.log("[EMS-Right][%d:%d:%d] %s: ", new Date().getHours(), new Date().getMinutes(), new Date().getSeconds(),
+        //     "before predData", predData);
         const newpredData = [...formattedData.map(([timestamp, value]) => [timestamp, value + Math.floor((Math.random() - 0.5) * 100)]),
         ...formattedData.map(([timestamp, value]) => [
             timestamp + 24 * 60 * 60 * 1000, //+1일일
             value + Math.floor((Math.random() - 0.5) * 50)])]
-        console.log("[EMS-Right][%d:%d:%d] %s: ", new Date().getHours(), new Date().getMinutes(), new Date().getSeconds(),
-            "after predData", newpredData);
+        // console.log("[EMS-Right][%d:%d:%d] %s: ", new Date().getHours(), new Date().getMinutes(), new Date().getSeconds(),
+        //     "after predData", newpredData);
         setPredData(newpredData); 
     }, [formattedData]); // ✅ formattedData가 변경될 때만 실행됨
 

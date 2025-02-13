@@ -205,7 +205,7 @@ function PumpMoterRight(props){
             <Container className = 'container_one'>
                 <Alertimg className={vibalertValue}></Alertimg>
                 <TitletextPMS className='title'>모터
-                    <SubTitleTextPMS className='subtitle'>부하/반부하 총진동량{vibalertValue}</SubTitleTextPMS>
+                    <SubTitleTextPMS className='subtitle'>부하/반부하 총진동량</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>

@@ -639,7 +639,7 @@ function PowerPeakRight() {
     // 처음 한 번만 실행 (csv파일 로드)
     // 현재 시간 기준으로 (실시간 전력 데이터 과거 24시간) / (실시간 기반 예측 전력 데이터 -24 ~ +24)
     if (!hasRun.current) { // 렌더링 방지
-        fetch("/gj_data_test.csv") // ✅ `public/jg_data_test_2.csv` 로드
+        fetch("gj_data_test.csv") // ✅ `public/jg_data_test_2.csv` 로드
             .then((response) => response.text()) // ✅ 텍스트로 변환
             .then((csvText) => {
                 Papa.parse(csvText, {
@@ -685,7 +685,7 @@ function PowerPeakRight() {
     // csv 파일에서 데이터 로드하여 formattedData 변경
     useEffect(() => {
         const intrval = setInterval(() => {
-            fetch("/gj_data_test.csv") // ✅ `public/jg_data_test_2.csv` 로드
+            fetch("gj_data_test.csv") // ✅ `public/jg_data_test_2.csv` 로드
                 .then((response) => response.text()) // ✅ 텍스트로 변환
                 .then((csvText) => {
                     Papa.parse(csvText, {

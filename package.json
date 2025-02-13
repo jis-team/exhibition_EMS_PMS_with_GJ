@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "cra-template": "1.2.0",
+    "gh-pages": "^6.3.0",
     "highcharts": "^12.1.2",
     "highcharts-react-official": "^3.2.1",
     "papaparse": "^5.5.2",
@@ -19,7 +20,9 @@
     "start": "set WATCHPACK_POLLING=true && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -39,4 +42,6 @@
       "last 1 safari version"
     ]
   }
+  ,
+  "homepage": "https://jis-team.github.io/exhibition_EMS_PMS_with_GJ/"
 }

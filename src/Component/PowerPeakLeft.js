@@ -505,7 +505,7 @@ function PowerPeakLeft() {
     // 1. csv파일 로드 
     
     if (!hasRun.current) { // 렌더링 방지지
-        fetch("/jg_data_test.csv") // ✅ `public/jg_data_test_2.csv` 로드
+        fetch("jg_data_test.csv") // ✅ `public/jg_data_test_2.csv` 로드
           .then((response) => response.text()) // ✅ 텍스트로 변환
           .then((csvText) => {
             Papa.parse(csvText, {
@@ -527,7 +527,7 @@ function PowerPeakLeft() {
     }
     useEffect(() => {
         const intrval = setInterval(() => {
-        fetch("/jg_data_test.csv") // ✅ `public/jg_data_test_2.csv` 로드
+        fetch("jg_data_test.csv") // ✅ `public/jg_data_test_2.csv` 로드
           .then((response) => response.text()) // ✅ 텍스트로 변환
           .then((csvText) => {
             Papa.parse(csvText, {

@@ -196,9 +196,6 @@ function PumpBearingChart(props){
               })
               
               setAlertvalue(Math.max(...dataAlert)>Math.max(...dataAlert2)? Math.max(...dataAlert):Math.max(...dataAlert2))
-  
-
-            
 
             const options = {
               ...prevOptions, 

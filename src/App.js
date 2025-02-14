@@ -6,13 +6,14 @@ import PMS from "./Routes/PMS";
 import Home from "./Routes/Home";
 import { createGlobalStyle } from "styled-components";
 
-import './App.css';
+import "./App.css";
 
 const GlobalStyle = createGlobalStyle`
   html, body {
     
     width: 1920px;
     height: 1080px;
+    background-size: contain;
     overflow-y: auto;
   }
   html::-webkit-scrollbar {
@@ -25,12 +26,11 @@ function App() {
     <BrowserRouter>
       <GlobalStyle />
       <Routes>
-         
-          <Route path="/PMS" element={<PMS />}></Route>
-          <Route path="/EMS/*" element={<EMS />}></Route>
-          <Route path="/*" element={<Home />}></Route>
+        <Route path="/PMS" element={<PMS />}></Route>
+        <Route path="/EMS/*" element={<EMS />}></Route>
+        <Route path="/*" element={<Home />}></Route>
       </Routes>
-  </BrowserRouter>
+    </BrowserRouter>
   );
 }
 

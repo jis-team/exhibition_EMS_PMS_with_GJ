@@ -132,27 +132,6 @@ function MoterRoterChart(props) {
 
     useEffect(() => {
         setpumpImpellerOption((prevOptions) => {
-
-            // let make_err;
-            // if (Number(props.pumpnum) == 6) {
-            //     make_err = 10;
-            // }
-            // else{
-            //     make_err = Math.floor(Math.random() * 5) + 1;
-            // }
-            // const dataArray = Array(24 * 7).fill(make_err)
-            // const dataVibOne = dataArray.map((value, i) => {
-            //     return [Date.UTC(
-            //         Number(new Date().getFullYear()),
-            //         Number(new Date().getMonth()),
-            //         Number(new Date().getDate()),
-            //         Number(new Date().getHours()),
-            //         0) - (i * 1000 * 60 * 60),
-            //     (value * 0.13) + (value * 0.1) + ((Math.random() * 0.1))]
-            // })
-            //     .sort((a, b) => a[0] - b[0]);
-
-
             let make_err;
             if (Number(props.pumpnum) == 10) {
                 make_err = 10;
@@ -161,6 +140,10 @@ function MoterRoterChart(props) {
                 make_err = Math.floor(Math.random() * 5) + 1;
             }
             const dataArray = Array(24 * 7).fill(make_err)
+            for (let i = 0; i < 52; i++) {
+                const randomIndex = Math.floor(Math.random() * dataArray.length);
+                dataArray[randomIndex] = 0;
+            }
             const dataVibOne = dataArray.map((value, i) => {
                 return [Date.UTC(
                     Number(new Date().getFullYear()),

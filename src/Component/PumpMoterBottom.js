@@ -195,7 +195,7 @@ function PumpMoterBottom(props){
             <Container className = 'container_one'> 
             <Alertimg className={UnbalanceValue}></Alertimg>
             <TitletextPMS className='title'>펌프모터
-                    <SubTitleTextPMS className='subtitle'>축정렬 불량{props.pumpnum}</SubTitleTextPMS>
+                    <SubTitleTextPMS className='subtitle'>축정렬 불량</SubTitleTextPMS>
                     <TitleBorderPMS className='top'></TitleBorderPMS>
                     <TitleBorderPMS className='bottom'></TitleBorderPMS>
                 </TitletextPMS>

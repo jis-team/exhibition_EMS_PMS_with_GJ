@@ -140,6 +140,10 @@ function PumpCavitationChart(props) {
                 make_err = Math.floor(Math.random() * 3) + 1;
             }
             const dataArray = Array(24 * 7).fill(make_err)
+            for (let i = 0; i < 3; i++) {// 0으로 변경할 값의 개수
+                const randomIndex = Math.floor(Math.random() * dataArray.length);
+                dataArray[randomIndex] = 0;
+            }
             const dataVibOne = dataArray.map((value, i) => {
                 return [Date.UTC(
                     Number(new Date().getFullYear()),

@@ -158,8 +158,7 @@ function PumpMisalignmentChart(props) {
                 make_err = Math.floor(Math.random() * 3) + 1;
             }
             const dataArray = Array(24 * 7).fill(make_err)
-            const numOfZeros = 13; // 0으로 변경할 값의 개수
-            for (let i = 0; i < numOfZeros; i++) {
+            for (let i = 0; i < 13; i++) {// 0으로 변경할 값의 개수
                 const randomIndex = Math.floor(Math.random() * dataArray.length);
                 dataArray[randomIndex] = 0;
             }

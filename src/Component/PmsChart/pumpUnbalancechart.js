@@ -158,6 +158,10 @@ function PumpUnbalanceChart(props) {
                 make_err = Math.floor(Math.random() * 3) + 1;
             }
             const dataArray = Array(24 * 7).fill(make_err % 8)
+            for (let i = 0; i < 2; i++) {// 0으로 변경할 값의 개수
+                const randomIndex = Math.floor(Math.random() * dataArray.length);
+                dataArray[randomIndex] = 0;
+            }
             const dataVibOne = dataArray.map((value, i) => {
                 return [Date.UTC(
                     Number(new Date().getFullYear()),
@@ -188,7 +192,7 @@ function PumpUnbalanceChart(props) {
                 series: [
 
                     {
-                        name: '펌프모터 축정렬렬',
+                        name: '펌프모터 축정렬',
                         data: dataVibOne,
                         color: '#8098ff'
                     },

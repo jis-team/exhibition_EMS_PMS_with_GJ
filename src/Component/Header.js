@@ -1,10 +1,10 @@
 // logo
-import logo from '../juin_logo_.jpg';
+import logo from "../juin_logo_.jpg";
 // import logo from '../kwater.png';
-import logo_down_img from '../header_title_down.png'
+import logo_down_img from "../header_title_down.png";
 
 import React from "react";
-import {useState,useEffect} from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
@@ -16,10 +16,9 @@ const Headerdiv = styled.div`
   z-index: 999; // header가 항상 화면구성에서 맨 위여야 함 => z-index 설정 높임
   display: grid;
   align-content: center;
-  grid-template-columns: 25% 50% 25%;
+  grid-template-columns: repeat(3, 25% 50% 25%);
   grid-auto-flow: dense;
-  grid-template-areas:
-    "timer title login";
+  grid-template-areas: "timer title login";
   margin-top: 20px;
 `;
 const Timer = styled.div`
@@ -55,13 +54,13 @@ const Timertime = styled.span`
 `;
 
 const Title = styled.div`
-grid-area: title;
-position: relative;
-display: flex;
-flex-direction: row;
-flex-wrap: nowrap;
-justify-content: center;
-align-items: flex-end;
+  grid-area: title;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-end;
 `;
 const Titletext = styled.div`
   width: 500px;
@@ -95,47 +94,46 @@ const Titleimg = styled.img`
 
 const Login = styled.div`
   grid-area: login;
-      position: relative;
-      top: 15px;
-      display: flex;
-      flex-direction: row;
-      flex-wrap: nowrap;
-      justify-content: flex-end;
-      align-items: center;
-      height: 100%;
+  position: relative;
+  top: 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
 `;
 
 const LoginBtn = styled.div`
-    width: 120px;
-    height: 30px;
-    border-radius: 15px;
-    border: solid 1px #688397;
-    background-color: rgba(101, 183, 255, 0.35);
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    text-shadow: 0 0 6px #5cafff;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    letter-spacing: normal;
-    text-align: center;
-    color: #b4dffa;
-    margin: 0 35px 0 0;
-    &.invisible {
-      visibility: hidden;
-    }
-`
+  width: 120px;
+  height: 30px;
+  border-radius: 15px;
+  border: solid 1px #688397;
+  background-color: rgba(101, 183, 255, 0.35);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  text-shadow: 0 0 6px #5cafff;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #b4dffa;
+  margin: 0 35px 0 0;
+  &.invisible {
+    visibility: hidden;
+  }
+`;
 const LoginText = styled.span`
-    padding: 0 0 3px 10px;
-    font-family: EliceDigitalBaeum;
-    font-size: 15px;
-    line-height: 1.4;
-`
-
+  padding: 0 0 3px 10px;
+  font-family: EliceDigitalBaeum;
+  font-size: 15px;
+  line-height: 1.4;
+`;
 
 //날짜 및 시간 포맷팅 함수
 const formatDate = (date) => {
@@ -149,43 +147,43 @@ const formatDate = (date) => {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 };
 
-
 function Header() {
   const navigate = useNavigate();
   const [currentTime, setCurrentTime] = useState(new Date());
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTime(new Date())
-    },1000)
+      setCurrentTime(new Date());
+    }, 1000);
 
     return () => clearInterval(interval);
-  },[]);
+  }, []);
   return (
-  <Headerdiv>
-    <Timer>
-      <Timertext>현재시간 </Timertext>
-      <Timertime>{formatDate(currentTime)}</Timertime>  
-    </Timer>
-    <Title >
-      <Logo src={logo} alt="logo" />
-      <Titletext onClick={() => navigate("/")}>AI기반 스마트 정수장</Titletext>
-      <Titleimg src={logo_down_img} alt="logo"></Titleimg>
-    </Title>
-    
-    <Login>
-    {/* <LoginBtn onClick={() => navigate("/")}>
+    <Headerdiv>
+      <Timer>
+        <Timertext>현재시간 </Timertext>
+        <Timertime>{formatDate(currentTime)}</Timertime>
+      </Timer>
+      <Title>
+        <Logo src={logo} alt="logo" />
+        <Titletext onClick={() => navigate("/")}>
+          AI기반 스마트 정수장
+        </Titletext>
+        <Titleimg src={logo_down_img} alt="logo"></Titleimg>
+      </Title>
+
+      <Login>
+        {/* <LoginBtn onClick={() => navigate("/")}>
       <LoginText>Home</LoginText>
     </LoginBtn> */}
-    <LoginBtn onClick={() => navigate("/EMS")}>
-      <LoginText>EMS</LoginText>
-    </LoginBtn>
-    <LoginBtn onClick={() => navigate("/PMS")}>
-      <LoginText>PMS</LoginText>
-    </LoginBtn>
-    </Login>
-  </Headerdiv>
-    
+        <LoginBtn onClick={() => navigate("/EMS")}>
+          <LoginText>EMS</LoginText>
+        </LoginBtn>
+        <LoginBtn onClick={() => navigate("/PMS")}>
+          <LoginText>PMS</LoginText>
+        </LoginBtn>
+      </Login>
+    </Headerdiv>
   );
 }
 

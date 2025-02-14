@@ -1,0 +1,201 @@
+[33mcommit 59a000199603cff00747b06282e3a3a54336f483[m[33m ([m[1;36mHEAD -> [m[1;32mlgh_work[m[33m)[m
+Author: jis-lgh <lgh@jisystem.com>
+Date:   Fri Feb 14 15:44:59 2025 +0900
+
+    업데이트 내역 25/02/14
+    1. 창 조절시 화면 엇나감 방지
+    2. EMS 알림 팝업 재작업(디자인)
+    3. PMS 호기별 알람 작업
+
+[33mcommit 8fd90ad2ce45aff598276bcb6b69f8d4ef9cd8b6[m
+Author: jis-lgh <lgh@jisystem.com>
+Date:   Fri Feb 14 15:28:36 2025 +0900
+
+    업데이트 목록 25/02/14
+    1. main 확대 축소시 어느정도 맞춰지도록 설정
+    2. 알람 팝업창 디자인 변경
+    3. PMS 페이지 / 1호기 ~ 12호기까지 고장별 알람 뜨도록 변경
+
+[33mcommit 9df5ef92d9df26a0dcdd35e1f20d891d4bd03576[m[33m ([m[1;31morigin/pjl_pms_eachalarm[m[33m, [m[1;31morigin/lgh_work[m[33m)[m
+Author: feat.jl <feat.jl.sec@gmail.com>
+Date:   Fri Feb 14 09:26:17 2025 +0900
+
+    pms - 펌프10번까지 알람 발생 완료
+
+[33mcommit 0d04d391b393c0a0365894f0d57367c3b1ba9b97[m
+Merge: d45b3ee 0ee0fd7
+Author: feat.jl <feat.jl.sec@gmail.com>
+Date:   Thu Feb 13 17:40:00 2025 +0900
+
+    merge branch 'main' of github.com:jis-team/exhibition_EMS_PMS_with_GJ into pjl_pms_eachalarm
+
+[33mcommit d45b3ee10b539e64e842f52f3427eed3beb35045[m
+Author: feat.jl <feat.jl.sec@gmail.com>
+Date:   Thu Feb 13 17:29:41 2025 +0900
+
+    2nd commit
+
+[33mcommit 0ee0fd75d5ebe681fb2629c6e37bee065ea27e53[m[33m ([m[1;31morigin/main[m[33m)[m
+Merge: ec680ca ed8cd84
+Author: 박찬샘 <85976362+parkchansaem@users.noreply.github.com>
+Date:   Thu Feb 13 15:17:19 2025 +0900
+
+    Merge pull request #7 from jis-team/pages
+    
+    update pages
+
+[33mcommit ed8cd842e725753b41d97fd62e46462f389491ca[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Thu Feb 13 15:14:38 2025 +0900
+
+    update pages
+
+[33mcommit ec680ca5a3e640ab24700b62e9fe68b63c106975[m
+Author: jis-lgh <lgh@jisystem.com>
+Date:   Thu Feb 13 14:58:55 2025 +0900
+
+    Update README.md
+
+[33mcommit 004ccdffe462f6c296170794e4a9118dcf1ee9ca[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Thu Feb 13 14:46:43 2025 +0900
+
+    route basename add
+
+[33mcommit a21ff0f9a3e3f93ba7be94ee6801467424f1531c[m
+Merge: d9db695 ec3b0f4
+Author: 박찬샘 <85976362+parkchansaem@users.noreply.github.com>
+Date:   Thu Feb 13 13:35:27 2025 +0900
+
+    Merge pull request #6 from jis-team/pages
+    
+    Pages
+
+[33mcommit ec3b0f4648d9adc639cfb09b2fc3f61e104ede28[m[33m ([m[1;31morigin/pages[m[33m)[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Thu Feb 13 13:30:13 2025 +0900
+
+    git_pages
+
+[33mcommit 78f2d7a9d3eb8f2d690e81f40e4ab0c8f070c4e6[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Thu Feb 13 13:24:01 2025 +0900
+
+    test
+
+[33mcommit e0c82aebae40b1a26d007295bdbde26f76711a9e[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Thu Feb 13 13:20:50 2025 +0900
+
+    test
+
+[33mcommit 655a2385b06c138f8c15c9f9770b8282e46d5de8[m
+Author: feat.jl <feat.jl.sec@gmail.com>
+Date:   Thu Feb 13 11:49:25 2025 +0900
+
+    it is first
+
+[33mcommit d9db6954582607be9cf3915d8f551d7612299523[m
+Merge: e1866b8 ba3539d
+Author: Jinlyul Park <feat.jl.sec@gmail.com>
+Date:   Thu Feb 13 10:32:19 2025 +0900
+
+    Merge pull request #5 from jis-team/pjl
+    
+    pjl 알람기능 확인했어
+
+[33mcommit ba3539dc004b5503a42152e7b468327e50759da1[m
+Author: feat.jl <feat.jl.sec@gmail.com>
+Date:   Thu Feb 13 09:33:06 2025 +0900
+
+    EMS_right_v1.0
+
+[33mcommit e1866b8474875c7ec0e2cd04733a58eaa0b6dc2b[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Wed Feb 12 17:58:56 2025 +0900
+
+    PMS_update_all_2
+
+[33mcommit db3982a1334c55f4d9ae3583d71b1d343355135d[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Wed Feb 12 17:53:14 2025 +0900
+
+    PMS_update_all_1
+
+[33mcommit cf33ea77629742b7ec553f229ba908170978ed9d[m
+Merge: c93b6a0 8b3b29d
+Author: 박찬샘 <85976362+parkchansaem@users.noreply.github.com>
+Date:   Wed Feb 12 17:47:03 2025 +0900
+
+    Merge pull request #4 from jis-team/pms
+    
+    PMS_update_all
+
+[33mcommit 8b3b29de19e1faaa6ed176ce78f1a8bdf0ab3a50[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Wed Feb 12 17:46:33 2025 +0900
+
+    PMS_update_all
+
+[33mcommit c93b6a0de19fb53c3fff0cc58b93acfa24a595b6[m
+Merge: 00d6b0e 02973e1
+Author: 박찬샘 <85976362+parkchansaem@users.noreply.github.com>
+Date:   Tue Feb 11 15:41:54 2025 +0900
+
+    Merge pull request #3 from jis-team/pms
+    
+    PMS_left_component_update
+
+[33mcommit 02973e17d5b68052ff855cf9a6a695278ef8dad3[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Tue Feb 11 15:40:23 2025 +0900
+
+    PMS_left_component_update
+
+[33mcommit 00d6b0e059e74977736e2b4594e94e52fa0ca0a5[m
+Merge: 464eb8b 75d8278
+Author: 박찬샘 <85976362+parkchansaem@users.noreply.github.com>
+Date:   Mon Feb 10 09:47:04 2025 +0900
+
+    Merge pull request #2 from jis-team/pms
+    
+    PMS_update
+
+[33mcommit 75d8278396272d71573e8fa3a8030a3354c8b1b8[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Mon Feb 10 09:46:32 2025 +0900
+
+    PMS_update
+
+[33mcommit 2c42ba1aa436bbda6a31f901bdde8b022255bb27[m
+Author: feat.jl <feat.jl.sec@gmail.com>
+Date:   Fri Feb 7 16:18:31 2025 +0900
+
+    pjl-first commit
+
+[33mcommit 464eb8bb044592ad00d4e424f9bd1af18a63a16c[m
+Merge: 58537fc b599cf5
+Author: 박찬샘 <85976362+parkchansaem@users.noreply.github.com>
+Date:   Fri Feb 7 15:30:31 2025 +0900
+
+    Merge pull request #1 from jis-team/readme
+    
+    readme
+
+[33mcommit b599cf5a7718832dff02a1f99d1c1eb008382c51[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Fri Feb 7 15:30:00 2025 +0900
+
+    readme
+
+[33mcommit 58537fc27867074ceff51a2cf40de275dcb98fa5[m
+Author: parkchanseam <ased1233@naver.com>
+Date:   Fri Feb 7 15:24:44 2025 +0900
+
+    init EMS
+
+[33mcommit 9037830cf5eeb22d71667537f07bf3ce7de79675[m
+Author: 박찬샘 <85976362+parkchansaem@users.noreply.github.com>
+Date:   Fri Feb 7 14:47:49 2025 +0900
+
+    Initial commit

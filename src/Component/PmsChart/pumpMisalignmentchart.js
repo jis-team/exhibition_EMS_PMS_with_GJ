@@ -151,7 +151,7 @@ function PumpMisalignmentChart(props) {
     useEffect(() => {
         setpumpMisalignmentOption((prevOptions) => {
             let make_err;
-            if (Number(props.pumpnum) == 9) {
+            if (Number(props.pumpnum) === 9) {
                 make_err = 6;
             }
             else{

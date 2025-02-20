@@ -596,7 +596,9 @@ const chartsOptions = {
     exporting: {
         enabled: false,
     },
-
+    accessibility: {
+        enabled: false,
+    },
     series: [],
 };
 
@@ -794,8 +796,8 @@ function PowerPeakRight() {
                                 const formattedDate = UtcToDate(date);
                                 return [formattedDate, item[1]];
                             });
-                            // console.log("[EMS-Right][%d:%d:%d] %s:",new Date().getHours(),new Date().getMinutes(),new Date().getSeconds(),
-                            //     "✅ CSV 데이터",formattedUtcTime);
+                            console.log("[EMS-Right][%d:%d:%d] %s:",new Date().getHours(),new Date().getMinutes(),new Date().getSeconds(),
+                                "✅ CSV 데이터",formattedUtcTime);
                         },
                         header: true, // ✅ 첫 번째 행을 키로 사용 (컬럼명 유지)
                         skipEmptyLines: true,
@@ -809,7 +811,9 @@ function PowerPeakRight() {
                 );
         }, updateTime); // 1시간마다 수정 -> 일단 1분마다 실행
         return () => clearInterval(intrval);
-    }, []);
+    }, [updateTime, gjpowervalue, gjpeakvalue]);
+    // }, []);
+    
 
 
     // 현재 시간
@@ -818,13 +822,13 @@ function PowerPeakRight() {
             const currentTimeint = Date.UTC(Number(new Date().getFullYear()),Number(new Date().getMonth()),Number(new Date().getDate()),
                                             Number(new Date().getHours()),Number(new Date().getMinutes()));
             setCurrentTime(currentTimeint);
-            const currDate = new Date(currentTimeint);
-            const formattedCurrentTime = `${currDate.getUTCFullYear()}-${String(currDate.getUTCMonth() + 1).padStart(2, "0")}-${String(currDate.getUTCDate()).padStart(2, "0")} ${String(currDate.getUTCHours()).padStart(2, "0")}:${String(currDate.getUTCMinutes()).padStart(2, "0")}:${String(currDate.getUTCSeconds()).padStart(2, "0")}`;
+            const formattedCurrentTime = formatDate(new Date());
             console.log("[EMS-Right][%d:%d:%d] %s: ",new Date().getHours(),new Date().getMinutes(),new Date().getSeconds(), 
                         "currentTime", formattedCurrentTime);
         }, updateTime);
         return () => clearInterval(intervaltime); // 컴포넌트 언마운트 시 타이머 정리
-    }, []);
+    }, [updateTime]);
+    // }, []);
 
 
     // formattedData 변경마다 업데이트, 1->2일 변경 후, 전력 예측 데이터 난수로 수정
@@ -892,7 +896,8 @@ function PowerPeakRight() {
         setPowerVal1_2(powerVal1_2);
         setPowerVal2_2(powerVal2_2);
         setPowerVal3_2(powerVal3_2);
-    }, [predData]); //  formattedData가 변경될 때만 실행됨
+    }, [predData, formattedData]);
+    // }, [predData]); //  formattedData가 변경될 때만 실행됨
 
     useEffect(() => {
         setOptions((prevOptions) => {
@@ -929,7 +934,8 @@ function PowerPeakRight() {
             };
             return updatedOptions;
         });
-    }, [currentTime, formattedData, predData]);
+    }, [currentTime, formattedData, predData, gjpeakvalue]);
+    // }, [currentTime, formattedData, predData]);
 
     return (
         <Power>

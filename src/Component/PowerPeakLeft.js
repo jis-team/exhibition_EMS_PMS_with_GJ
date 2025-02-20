@@ -513,8 +513,8 @@ function PowerPeakLeft() {
                 const formattedDataO = result.data.map(((row)=>[
                     Date.UTC(Number(new Date().getFullYear()), Number(new Date().getMonth()), Number(new Date().getDate()), row.index, 0),parseFloat(row.value)
                 ]))
-                console.log("📌 CSV 데이터:", result.data); // ✅ 콘솔에 CSV 데이터 출력
-                console.log(formattedDataO)
+                // console.log("📌 CSV 데이터:", result.data); // ✅ 콘솔에 CSV 데이터 출력
+                // console.log(formattedDataO)
                 setFormattedData(formattedDataO)
               },
               header: true, // ✅ 첫 번째 행을 키로 사용 (컬럼명 유지)
@@ -535,8 +535,8 @@ function PowerPeakLeft() {
                 const formattedDataO = result.data.map(((row)=>[
                     Date.UTC(Number(new Date().getFullYear()), Number(new Date().getMonth()), Number(new Date().getDate()), row.index, 0),parseFloat(row.value)
                 ]))
-                console.log("📌 CSV 데이터:", result.data); // ✅ 콘솔에 CSV 데이터 출력
-                console.log(formattedDataO)
+                // console.log("📌 CSV 데이터:", result.data); // ✅ 콘솔에 CSV 데이터 출력
+                // console.log(formattedDataO)
                 setFormattedData(formattedDataO)
               },
               header: true, // ✅ 첫 번째 행을 키로 사용 (컬럼명 유지)
@@ -550,12 +550,12 @@ function PowerPeakLeft() {
 
     // 전력 예측 데이터 난수로 수정 
     useEffect(() => {
-        console.log("formatted (최신 상태):", [
-            ...formattedData.map(([timestamp, value]) => [timestamp, value]),
-            ...formattedData.map(([timestamp, value])=>[
-            timestamp + 24*60*60*1000, //+1일일
-            value +  Math.floor(Math.random() * 100)
-        ])]);
+        // console.log("formatted (최신 상태):", [
+        //     ...formattedData.map(([timestamp, value]) => [timestamp, value]),
+        //     ...formattedData.map(([timestamp, value])=>[
+        //     timestamp + 24*60*60*1000, //+1일일
+        //     value +  Math.floor(Math.random() * 100)
+        // ])]);
         setPredData([
             ...formattedData.map(([timestamp, value]) => [timestamp, value +  Math.floor((Math.random()-0.5) * 100) ]),
             ...formattedData.map(([timestamp, value])=>[
@@ -567,16 +567,16 @@ function PowerPeakLeft() {
 
     // 예상 데이터에 따라 값 수정 
     useEffect(() => {
-        console.log("predData (최신 상태):", typeof(predData),predData,typeof(predData.slice(1,3)));
+        // console.log("predData (최신 상태):", typeof(predData),predData,typeof(predData.slice(1,3)));
         // console.log("predData max test:",predData.slice(Number(new Date().getHours())+1,48), predData.reduce((max,cur)=>{return cur[1] > max[1] ? cur : max},[0,0]));
         const predMAxArray = predData.slice(Number(new Date().getHours())+1,48).reduce((max,cur)=>{return cur[1] > max[1] ? cur : max},[0,0])
         const currentPowerValue = formattedData.slice(Number(new Date().getHours()), Number(new Date().getHours())+1).reduce((max,cur)=>{return cur[1]},0)
         const randomValue = (Math.random()*0.05)
         const pumpPower1 = Number(currentPowerValue*(0.5+randomValue))
         const pumpPower2 = Number(currentPowerValue*(0.5-randomValue))
-        console.log(pumpPower1);
-        console.log(pumpPower2);
-        console.log(formatDate(new Date(predMAxArray[0])));
+        // console.log(pumpPower1);
+        // console.log(pumpPower2);
+        // console.log(formatDate(new Date(predMAxArray[0])));
         setPowerValuePump1(pumpPower1)
         setPowerValuePump2(pumpPower2)
         setPredPeakValue(predMAxArray[1].toFixed(2));

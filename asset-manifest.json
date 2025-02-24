@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/exhibition_EMS_PMS_with_GJ/static/css/main.f855e6bc.css",
-    "main.js": "/exhibition_EMS_PMS_with_GJ/static/js/main.e26e3201.js",
+    "main.js": "/exhibition_EMS_PMS_with_GJ/static/js/main.e23787b4.js",
     "static/js/488.feefe78b.chunk.js": "/exhibition_EMS_PMS_with_GJ/static/js/488.feefe78b.chunk.js",
     "static/media/pmsmotor_misalignment.png": "/exhibition_EMS_PMS_with_GJ/static/media/pmsmotor_misalignment.9ee8b0ed7c4e08b85171.png",
     "static/media/pmspump_cavitation.png": "/exhibition_EMS_PMS_with_GJ/static/media/pmspump_cavitation.de38f5732000c13f99b6.png",
@@ -18,11 +18,11 @@
     "static/media/alertC.svg": "/exhibition_EMS_PMS_with_GJ/static/media/alertC.f06d4a747031e7bbca334d03416e6d42.svg",
     "index.html": "/exhibition_EMS_PMS_with_GJ/index.html",
     "main.f855e6bc.css.map": "/exhibition_EMS_PMS_with_GJ/static/css/main.f855e6bc.css.map",
-    "main.e26e3201.js.map": "/exhibition_EMS_PMS_with_GJ/static/js/main.e26e3201.js.map",
+    "main.e23787b4.js.map": "/exhibition_EMS_PMS_with_GJ/static/js/main.e23787b4.js.map",
     "488.feefe78b.chunk.js.map": "/exhibition_EMS_PMS_with_GJ/static/js/488.feefe78b.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.e26e3201.js"
+    "static/js/main.e23787b4.js"
   ]
 }

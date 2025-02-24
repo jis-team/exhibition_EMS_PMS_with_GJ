@@ -221,7 +221,7 @@ function PumpMoterMiddle(props) {
     <PmsConponentMiddle>
       <ComponentOne>
         <MiddleTitle>
-          <span>{selectedPump}번 정수장 펌프 모터</span>
+          <span>{selectedPump}번 펌프 모터</span>
           <MiddleTitleLine></MiddleTitleLine>
         </MiddleTitle>
         <PumpImgCOmponent>
@@ -239,9 +239,9 @@ function PumpMoterMiddle(props) {
                 }}
               >
                 <PumpImgSub />
-                <PumpNameText>정수장</PumpNameText>
+                <PumpNameText></PumpNameText>
+                <PumpNameText className="subtext">{num}번</PumpNameText>
                 <PumpNameText>펌프모터</PumpNameText>
-                <PumpNameText className="subtext">{num}</PumpNameText>
               </PumpBtn>
             ))}
           </>

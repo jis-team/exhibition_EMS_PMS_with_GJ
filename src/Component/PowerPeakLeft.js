@@ -588,7 +588,7 @@ function PowerPeakLeft() {
   <Power>
     <ImgPlate className='background' src ={imgbackground}></ImgPlate>
     <InfoSet>
-        <Title className='title'>장기 가압장
+        <Title className='title'>건물 총 전력
             <TitleBorder className='top'></TitleBorder>
             <TitleBorder className='bottom'></TitleBorder>
         </Title>
@@ -622,26 +622,26 @@ function PowerPeakLeft() {
         <TableText className='table_title'>주요 전력 소비 인자</TableText>
         <Table>
             <TableContainer className='pump'>
-                <TableText className='table_char'>펌프1호기</TableText>
-                <TableText className='table_char'>펌프2호기</TableText>
-                <TableText className='table_char'>펌프3호기</TableText>
-                <TableText className='table_char'>펌프4호기</TableText>
+                <TableText className='table_char'>1F</TableText>
+                <TableText className='table_char'>2F</TableText>
+                <TableText className='table_char'>3F</TableText>
+                <TableText className='table_char'>4F</TableText>
             </TableContainer>
             <TableContainer className='value'>
                 <TextSet>
-                    <TableText className='table_num'>{0.00.toFixed(2)}</TableText>
+                    <TableText className='table_num'>{(powerValuePump2*0.8).toFixed(2)}</TableText>
                     <TableText className='table_degree'>kW</TableText>
                 </TextSet>
                 <TextSet>
-                    <TableText className='table_num'>{powerValuePump1.toFixed(2)}</TableText>
+                    <TableText className='table_num'>{(powerValuePump1*0.7).toFixed(2)}</TableText>
                     <TableText className='table_degree'>kW</TableText>
                 </TextSet>
                 <TextSet>
-                    <TableText className='table_num'>{0.00.toFixed(2)}</TableText>
+                    <TableText className='table_num'>{(powerValuePump1*0.3).toFixed(2)}</TableText>
                     <TableText className='table_degree'>kW</TableText>
                 </TextSet>
                 <TextSet>
-                    <TableText className='table_num'>{powerValuePump2.toFixed(2)}</TableText>
+                    <TableText className='table_num'>{(powerValuePump2*0.2).toFixed(2)}</TableText>
                     <TableText className='table_degree'>kW</TableText>
                 </TextSet>
             </TableContainer>

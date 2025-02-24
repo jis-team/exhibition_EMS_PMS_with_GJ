@@ -62,25 +62,26 @@ const Title = styled.div`
   justify-content: center;
   align-items: flex-end;
 `;
-const Titletext = styled.div`
-  width: 500px;
-  font-family: KIMM_B;
-  font-size: 40px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.05;
-  letter-spacing: normal;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
-`;
+// const Titletext = styled.div`
+//   width: 500px;
+//   font-family: KIMM_B;
+//   font-size: 40px;
+//   font-weight: bold;
+//   font-stretch: normal;
+//   font-style: normal;
+//   line-height: 1.05;
+//   letter-spacing: normal;
+//   text-align: center;
+//   color: #fff;
+//   cursor: pointer;
+// `;
 
 const Logo = styled.img`
-  height: 30px;
-  width: 190px;
+  height: 35px;
+  width: 400px;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  cursor : pointer;
 `;
 
 const Titleimg = styled.img`
@@ -105,8 +106,8 @@ const Login = styled.div`
 `;
 
 const LoginBtn = styled.div`
-  width: 120px;
-  height: 30px;
+  width: 160px;
+  height: 35px;
   border-radius: 15px;
   border: solid 1px #688397;
   background-color: rgba(101, 183, 255, 0.35);
@@ -129,7 +130,7 @@ const LoginBtn = styled.div`
   }
 `;
 const LoginText = styled.span`
-  padding: 0 0 3px 10px;
+  padding: 0 0 0px 0px;
   font-family: EliceDigitalBaeum;
   font-size: 15px;
   line-height: 1.4;
@@ -165,10 +166,10 @@ function Header() {
         <Timertime>{formatDate(currentTime)}</Timertime>
       </Timer>
       <Title>
-        <Logo src={logo} alt="logo" />
-        <Titletext onClick={() => navigate("/")}>
-          AI기반 스마트 정수장
-        </Titletext>
+        <Logo src={logo}  alt="logo" onClick={() => navigate("/")} />
+        {/* <Titletext onClick={() => navigate("/")}>
+          (주)주인정보시스템
+        </Titletext> */}
         <Titleimg src={logo_down_img} alt="logo"></Titleimg>
       </Title>
 
@@ -177,10 +178,10 @@ function Header() {
       <LoginText>Home</LoginText>
     </LoginBtn> */}
         <LoginBtn onClick={() => navigate("/EMS")}>
-          <LoginText>EMS</LoginText>
+          <LoginText>전력피크분석</LoginText>
         </LoginBtn>
         <LoginBtn onClick={() => navigate("/PMS")}>
-          <LoginText>PMS</LoginText>
+          <LoginText>설비정밀진단</LoginText>
         </LoginBtn>
       </Login>
     </Headerdiv>

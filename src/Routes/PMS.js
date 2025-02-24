@@ -64,6 +64,7 @@ const TitletSetText = styled.span`
   text-shadow: 0 0 3px #000;
   font-size: 30px;
   line-height: 1.47;
+  margin-left: -90px;
 `;
 
 function PMS() {
@@ -144,7 +145,7 @@ function PMS() {
       </Headerclass>
       <PmsWrapper>
         <Titleset>
-          <TitletSetText>펌프 및 모터 - 정밀진단</TitletSetText>
+          <TitletSetText>설비별 정밀진단</TitletSetText>
         </Titleset>
         <PumpMoterLeft
           pumpnum={parentData}

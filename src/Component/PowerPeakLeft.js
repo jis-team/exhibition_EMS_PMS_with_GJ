@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { css } from "styled-components";
 import imgplate from '../peak_value_plate.png';
-import imgbackground from '../power_component_background.png';
+// import imgbackground from '../power_component_background.png';
+import imgbackground from '../img/EMS/EMS-장기가압장bg@2x.png'
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -12,60 +13,57 @@ import Papa from "papaparse";
 
 const Text = css`
     position: relative;
-    font-family: EliceDigitalBaeum;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
+    font: normal normal normal 20px/24px Pretendard;
     letter-spacing: normal;
     text-align: left;
     color: #fff;
 
-    &.title{
-        text-shadow: 0 0 6px #5cafff;
-        font-size: 20px;
-        line-height: 1.8;
-        padding: 0 0 0 20px;
-    }
+    // &.title{
+    //     text-shadow: 0 0 6px #5cafff;
+    //     font-size: 20px;
+    //     line-height: 1.8;
+    //     padding: 0 0 0 20px;
+    // }
     &.amount_char{
         width: 220px;
-        text-shadow: 0 0 9px #5cafff;
-        font-size: 18px;
+        // text-shadow: 0 0 9px #5cafff;
+        // font-size: 18px;
     }
     &.amount_num{
-        width: 70px;
-        text-shadow: 0 0 9px #5cafff;
-        font-family: Barlow;
-        font-size: 22px;
+        width: 80px;
+        font: normal normal bold 24px/29px Pretendard;
         text-align: right;
     }
     &.amount_degree{
         width: 50px;
-        font-family: Barlow;
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.5);
-        padding: 10px 0 0 10px;
+        // font-family: Barlow;
+        // font-size: 12px;
+        font: normal normal normal 16px/19px Pretendard;
+        color: #9FA3A9;
+        padding: 10px 0 0 20px;
     }
     &.time_char{
         width: 220px;
-        text-shadow: 0 0 9px #5cafff;
-        font-size: 18px;
+        // text-shadow: 0 0 9px #5cafff;
+        // font-size: 18px;
     }
     &.time_num{
-        width: 230px;
-        text-shadow: 0 0 9px #5cafff;
-        font-family: Barlow;
-        font-size: 22px;
+        width: 240px;
+        font: normal normal bold 24px/29px Pretendard;
         text-align: left;
     }
     &.value_char{
-        text-shadow: 0 0 9px #5cafff;
-        font-size: 18px;
+        // text-shadow: 0 0 9px #5cafff;
+        // font-size: 18px;
+        font: normal normal bold 20px/24px Pretendard;
+        letter-spacing: 0px;
+        color: #FFFFFF;
     }
     &.value_num{
         width: 100%;
-        text-shadow: 0 0 9px #5cafff;
-        font-family: Barlow;
-        font-size: 40px;
+        font: normal normal bold 40px/48px Pretendard;
+        letter-spacing: 0px;
+        color: #28FFF8;
         line-height: 2.3;
         text-align: center;
     }
@@ -78,25 +76,34 @@ const Text = css`
         padding: 15px 0 0 0;
     }
     &.table_title{
-        width: 320px;
-        text-shadow: 0 0 6px #65b7ff;
-        font-size: 20px;
+        // width: 320px;
+        // text-shadow: 0 0 6px #65b7ff;
+        // font-size: 20px;
+        height: 24px;
         text-align: center;
+        font: normal normal normal 20px/24px Pretendard;
+        letter-spacing: 0px;
+        color: #FFFFFF;
+        left:60px;
+        margin-top:15px;
     }
     &.table_char{
-        text-shadow: 0 0 9px #5cafff;
-        font-size: 14px;
-        line-height: 1.6;
+        font: normal normal normal 14px/16px Pretendard;
+        letter-spacing: 0px;
+        color: #E7E8E9;
+        opacity: 1;
     }
     &.table_num{
         width: 70px;
-        text-shadow: 0 0 6px #65b7ff;
-        font-size: 18px;
+        text-align: right;
+        font: normal normal bold 20px/24px Pretendard;
+        letter-spacing: 0px;
+        color: #CFD1D4;
         text-align: center;
     }
     &.table_degree{
         width: 20px;
-        font-size: 11px;
+        font: normal normal normal 12px/14px Pretendard;
         line-height: 2.4;
         color: rgba(255, 255, 255, 0.5);
         text-align: right;
@@ -107,9 +114,9 @@ const Power = styled.div`
     grid-area: left;
     position: relative;
     height: 1080px;
-    padding: 0 0 0 15px;
+    padding: 32px 0 0 30px;
     display: grid;
-    grid-template-rows: repeat(3, 216px 329px 325px);
+    grid-template-rows: repeat(3, 216px 300px 385px);
     grid-template-columns: repeat(1, 954px);
     grid-auto-flow: dense;
     grid-template-areas:
@@ -130,22 +137,56 @@ const InfoSet = styled.div`
       "max value";
 `;
 
+const InfoSetBorder = styled.div`
+    position: absolute;
+    top:250px;
+    left: 90px;
+    width: 798px;
+    height: 1px;
+    background: #6F757E 0% 0% no-repeat padding-box;
+    opacity: 1;
+`;
+
+const ChartBorder = styled.div`
+    position: absolute;
+    top:540px;
+    left: 90px;
+    width: 798px;
+    height: 1px;
+    background: #6F757E 0% 0% no-repeat padding-box;
+    opacity: 1;
+`;
+
 const Title = styled.div`
     position: relative;
     grid-area: title;
-    width: 288px;
+    width: 310px;
     height: 37px;
-    background-image: linear-gradient(to left, rgba(98, 128, 155, 0), #5e86a8, rgba(94, 142, 183, 0));
+    background: var(---0f1928) 0% 0% no-repeat padding-box;
+    // background: #0F1928 0% 0% no-repeat padding-box;
+// opacity: 0.5;
+    text-align: left;
     margin: 0 0 0 60px;
-    ${Text}
+    display:flex;
+    align-items: center;
+`
+const TitleText = styled.span`
+    position : relative;
+    left:20px;
+    font: normal normal bold 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
 `
 
 const TitleBorder = styled.div`
   position: absolute;
   left: 0;
-  width: 288px;
-  height: 1px;
-  background-image: linear-gradient(to left, rgba(143, 202, 253, 0), #64b7fc, rgba(111, 188, 255, 0));
+  width: 310px;
+  height: 2px;
+  background: transparent linear-gradient(90deg, var(--dark-mode-3681ff) 0%, var(--dark-mode) 51%, var(--main-color) 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(90deg, #3681FF 0%, #28FFF8 51%, #2CD2A2 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
   &.top {
     top: 0;
   }
@@ -154,6 +195,7 @@ const TitleBorder = styled.div`
   }
 `;
 
+
 const Container = styled.div`
     display: flex;
     justify-content: flex-end;
@@ -161,6 +203,8 @@ const Container = styled.div`
 `;
 const ContainerAmount = styled(Container)`
     grid-area: amount;
+    position:relative;
+    left:40px;
 `;
 
 const ContainerAmountText = styled.span`
@@ -168,9 +212,11 @@ const ContainerAmountText = styled.span`
 `
 
 const ContainerTime = styled(Container)`
-    width: 530px;
+    width: 520px;
     grid-area: time;
     align-items: flex-start;
+    position:relative;
+    left:40px;
 `;
 
 const ContainerTimeText = styled.span`
@@ -179,6 +225,8 @@ const ContainerTimeText = styled.span`
 const ContainerMax = styled(Container)`
     grid-area: max;
     align-items: flex-start;
+    position:relative;
+    left:40px;
 `
 
 const ContainerMaxText = styled.span`
@@ -191,7 +239,7 @@ const ContainerValue = styled(Container)`
     grid-area: value;
     flex-direction: column;
     justify-content: center;
-    padding: 0 0 0 70px;
+    padding: 0 0 0 0;
 `
 const ContainerValueText = styled.span`
  ${Text}
@@ -213,18 +261,21 @@ const ImgPlate = styled.img`
     }
     &.background{
       position: absolute;
-      top: 0;
-      right: 0;
-      width: 925px;
-      height: 896px;
+      top: -10px;
+      right: 0px;
+      width: 890px;
+      height: 845px;
+      transform: scale(1.05)
     }
 `;
 
 const Chart = styled.div`
     grid-area: chart;
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
+    position:relative;
+    left:60px;
 `
 
 const TableSet = styled.div`
@@ -236,15 +287,16 @@ const TableSet = styled.div`
 
 const TableText = styled.span`
     height: 50px;
-    padding: 10px 0 0 0;
-    font-family: Barlow;
+    // padding: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     ${Text}
-
 `
 
 const Table = styled.div`
       width:100%;
-      height: 100%;
+      height: 230px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -252,19 +304,17 @@ const Table = styled.div`
 `
 
 const TableContainer = styled(Table)`
-    width: 300px;
-    height: 257px;
+    width: 408px;
+    height: 240px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px 0 0 0;
-
     &.pump{
-        background-image: linear-gradient(to bottom, rgba(69, 108, 136, 0), rgba(32, 151, 192, 0.55) 24%, rgba(32, 151, 192, 0.55) 86%, rgba(69, 108, 136, 0));
+        // background: rgba(15, 25, 40, 0.5) 0% 0% no-repeat padding-box;
     }
     &.value{
-        background-image: linear-gradient(to bottom, rgba(69, 108, 136, 0), rgba(16, 81, 137, 0.55) 24%, rgba(16, 81, 137, 0.55) 86%, rgba(69, 108, 136, 0));
+        // background: #0F1928 0% 0% no-repeat padding-box;
         margin: 0 0 0 8px;
     }
 `
@@ -273,7 +323,22 @@ const TextSet =styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    background: rgba(15, 25, 40, 0.5) 0% 0% no-repeat padding-box;
+    // margin-top:2px;
+    width:100%;
+    &.value{
+        background: #0F1928 0% 0% no-repeat padding-box;
+        // margin: 0 0 0 8px;
+    }
 `
+const TestBorder = styled.div`
+    position: relative;
+    left: 0;
+    width: 408px;
+    height: 1px;
+    background: #27303E 0% 0% no-repeat padding-box;
+    opacity: 1;
+`;
 
 
 //chart
@@ -331,10 +396,10 @@ const chartsOptions =  {
         labels: {
         format: "{value:%Y-%m-%d %H:%M}",
         style: {
-            fontFamily: "Barlow",
+            fontFamily: "Pretendard",
             fontSize: "12px",
-            color: "#d3e7ff",
-            textShadow: "0 0 6px #269bbe",
+            color: "#CFD1D4",
+            // textShadow: "0 0 6px #269bbe",
         },
         },
         lineColor: "#5e7aa5",
@@ -373,9 +438,9 @@ const chartsOptions =  {
         gridLineColor: false,
         labels: {
         style: {
-            fontFamily: "Barlow",
+            fontFamily: "Pretendard",
             fontSize: "12px",
-            color: "#d3e7ff",
+            color: "#CFD1D4",
         },
         },
         lineColor: "#5e7aa5",
@@ -588,8 +653,9 @@ function PowerPeakLeft() {
   <Power>
     <ImgPlate className='background' src ={imgbackground}></ImgPlate>
     <InfoSet>
-        <Title className='title'>건물 총 전력
+        <Title>
             <TitleBorder className='top'></TitleBorder>
+            <TitleText>건물 총 전력</TitleText>
             <TitleBorder className='bottom'></TitleBorder>
         </Title>
         <ContainerAmount>
@@ -615,35 +681,55 @@ function PowerPeakLeft() {
             <ImgPlate className='plate' src ={imgplate}></ImgPlate>
         </ContainerValue>
     </InfoSet>
+        <InfoSetBorder></InfoSetBorder>
     <Chart>
         <HighchartsReact highcharts={Highcharts} options={options} />
     </Chart>
+    <ChartBorder></ChartBorder>
     <TableSet>
         <TableText className='table_title'>주요 전력 소비 인자</TableText>
         <Table>
             <TableContainer className='pump'>
+            <TestBorder/>
+            <TextSet>
                 <TableText className='table_char'>1F</TableText>
+            </TextSet>
+            <TestBorder/>
+            <TextSet>
                 <TableText className='table_char'>2F</TableText>
+            </TextSet>
+            <TestBorder/>
+            <TextSet>
                 <TableText className='table_char'>3F</TableText>
+            </TextSet>
+            <TestBorder/>
+            <TextSet>
                 <TableText className='table_char'>4F</TableText>
+            </TextSet>
+            <TestBorder/>
             </TableContainer>
             <TableContainer className='value'>
-                <TextSet>
+                <TestBorder/>
+                <TextSet className='value'>
                     <TableText className='table_num'>{(powerValuePump2*0.8).toFixed(2)}</TableText>
                     <TableText className='table_degree'>kW</TableText>
                 </TextSet>
-                <TextSet>
+                <TestBorder/>
+                <TextSet className='value'>
                     <TableText className='table_num'>{(powerValuePump1*0.7).toFixed(2)}</TableText>
                     <TableText className='table_degree'>kW</TableText>
                 </TextSet>
-                <TextSet>
+                <TestBorder/>
+                <TextSet className='value'>
                     <TableText className='table_num'>{(powerValuePump1*0.3).toFixed(2)}</TableText>
                     <TableText className='table_degree'>kW</TableText>
                 </TextSet>
-                <TextSet>
+                <TestBorder/>
+                <TextSet className='value'>
                     <TableText className='table_num'>{(powerValuePump2*0.2).toFixed(2)}</TableText>
                     <TableText className='table_degree'>kW</TableText>
                 </TextSet>
+                <TestBorder/>
             </TableContainer>
         </Table>
     </TableSet>

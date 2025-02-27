@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { css } from "styled-components";
 import imgplate from "../peak_value_plate.png";
-import imgbackground from "../power_component_background.png";
+// import imgbackground from "../power_component_background.png";
+import imgbackground from '../img/EMS/EMS-장기가압장bg@2x.png'
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -15,61 +16,54 @@ import Draggable from "react-draggable";
 import alarm_img from "../ems-alarm.png";
 
 const Text = css`
-  position: relative;
-  font-family: EliceDigitalBaeum;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-align: left;
-  color: #fff;
+    position: relative;
+    font: normal normal normal 20px/24px Pretendard;
+    letter-spacing: normal;
+    text-align: left;
+    color: #fff;
 
-  &.title {
-    text-shadow: 0 0 6px #5cafff;
-    font-size: 20px;
-    line-height: 1.8;
-    padding: 0 0 0 20px;
-  }
+//   &.title {
+//     text-shadow: 0 0 6px #5cafff;
+//     font-size: 20px;
+//     line-height: 1.8;
+//     padding: 0 0 0 20px;
+//   }
   &.amount_char {
     width: 220px;
-    text-shadow: 0 0 9px #5cafff;
-    font-size: 18px;
+    // text-shadow: 0 0 9px #5cafff;
+    // font-size: 18px;
   }
   &.amount_num {
-    width: 70px;
-    text-shadow: 0 0 9px #5cafff;
-    font-family: Barlow;
-    font-size: 22px;
+    width: 80px;
+    font: normal normal bold 24px/29px Pretendard;
     text-align: right;
   }
   &.amount_degree {
     width: 50px;
-    font-family: Barlow;
-    font-size: 12px;
-    color: rgba(255, 255, 255, 0.5);
-    padding: 10px 0 0 10px;
+    font: normal normal normal 16px/19px Pretendard;
+    color: #9FA3A9;
+    padding: 10px 0 0 20px;
   }
   &.time_char {
     width: 220px;
-    text-shadow: 0 0 9px #5cafff;
-    font-size: 18px;
+    // text-shadow: 0 0 9px #5cafff;
+    // font-size: 18px;
   }
   &.time_num {
-    width: 230px;
-    text-shadow: 0 0 9px #5cafff;
-    font-family: Barlow;
-    font-size: 22px;
+    width: 240px;
+    font: normal normal bold 24px/29px Pretendard;
     text-align: left;
   }
   &.value_char {
-    text-shadow: 0 0 9px #5cafff;
-    font-size: 18px;
+    font: normal normal bold 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #FFFFFF;
   }
   &.value_num {
     width: 100%;
-    text-shadow: 0 0 9px #5cafff;
-    font-family: Barlow;
-    font-size: 40px;
+    font: normal normal bold 40px/48px Pretendard;
+    letter-spacing: 0px;
+    color: #28FFF8;
     line-height: 2.3;
     text-align: center;
   }
@@ -82,25 +76,31 @@ const Text = css`
     padding: 15px 0 0 0;
   }
   &.table_title {
-    width: 320px;
-    text-shadow: 0 0 6px #65b7ff;
-    font-size: 20px;
+    height: 24px;
     text-align: center;
+    font: normal normal normal 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    left:60px;
+    margin-top:15px;
   }
   &.table_char {
-    text-shadow: 0 0 9px #5cafff;
-    font-size: 14px;
-    line-height: 1.6;
+    font: normal normal normal 14px/16px Pretendard;
+    letter-spacing: 0px;
+    color: #E7E8E9;
+    opacity: 1;
   }
   &.table_num {
     width: 70px;
-    text-shadow: 0 0 6px #65b7ff;
-    font-size: 18px;
+    text-align: right;
+    font: normal normal bold 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #CFD1D4;
     text-align: center;
   }
   &.table_degree {
     width: 20px;
-    font-size: 11px;
+    font: normal normal normal 12px/14px Pretendard;
     line-height: 2.4;
     color: rgba(255, 255, 255, 0.5);
     text-align: right;
@@ -111,9 +111,9 @@ const Power = styled.div`
   grid-area: right;
   position: relative;
   height: 1080px;
-  // padding: 0 0 0 15px;
+  padding: 32px 0 0 0;
   display: grid;
-  grid-template-rows: repeat(3, 216px 329px 325px);
+  grid-template-rows: repeat(3, 216px 300px 385px);
   grid-template-columns: repeat(1, 954px);
   grid-auto-flow: dense;
   grid-template-areas:
@@ -134,33 +134,55 @@ const InfoSet = styled.div`
     "max value";
 `;
 
+const InfoSetBorder = styled.div`
+    position: absolute;
+    top:250px;
+    left: 60px;
+    width: 798px;
+    height: 1px;
+    background: #6F757E 0% 0% no-repeat padding-box;
+    opacity: 1;
+`;
+
+const ChartBorder = styled.div`
+    position: absolute;
+    top:540px;
+    left: 60px;
+    width: 798px;
+    height: 1px;
+    background: #6F757E 0% 0% no-repeat padding-box;
+    opacity: 1;
+`;
+
 const Title = styled.div`
-  // border: 2px solid #688397; // border 추가
   position: relative;
   grid-area: title;
-  width: 288px;
-  height: 37px;
-  background-image: linear-gradient(
-    to left,
-    rgba(98, 128, 155, 0),
-    #5e86a8,
-    rgba(94, 142, 183, 0)
-  );
+    width: 310px;
+    height: 37px;
+  background: var(---0f1928) 0% 0% no-repeat padding-box;
   margin: 0 0 0 60px;
-  ${Text}
+  text-align: left;
+  display:flex;
+    align-items: center;
 `;
+
+const TitleText = styled.span`
+    position : relative;
+    left:20px;
+    font: normal normal bold 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
+`
 
 const TitleBorder = styled.div`
   position: absolute;
   left: 0;
-  width: 288px;
-  height: 1px;
-  background-image: linear-gradient(
-    to left,
-    rgba(143, 202, 253, 0),
-    #64b7fc,
-    rgba(111, 188, 255, 0)
-  );
+  width: 310px;
+  height: 2px;
+  background: transparent linear-gradient(90deg, var(--dark-mode-3681ff) 0%, var(--dark-mode) 51%, var(--main-color) 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(90deg, #3681FF 0%, #28FFF8 51%, #2CD2A2 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
   &.top {
     top: 0;
   }
@@ -176,6 +198,8 @@ const Container = styled.div`
 `;
 const ContainerAmount = styled(Container)`
   grid-area: amount;
+  position:relative;
+    left:40px;
 `;
 
 const ContainerAmountText = styled.span`
@@ -183,9 +207,14 @@ const ContainerAmountText = styled.span`
 `;
 
 const ContainerTime = styled(Container)`
-  width: 530px;
-  grid-area: time;
-  align-items: flex-start;
+//   width: 530px;
+//   grid-area: time;
+//   align-items: flex-start;
+  width: 520px;
+    grid-area: time;
+    align-items: flex-start;
+    position:relative;
+    left:40px;
 `;
 
 const ContainerTimeText = styled.span`
@@ -194,6 +223,8 @@ const ContainerTimeText = styled.span`
 const ContainerMax = styled(Container)`
   grid-area: max;
   align-items: flex-start;
+  position:relative;
+    left:40px;
 `;
 
 const ContainerMaxText = styled.span`
@@ -206,7 +237,7 @@ const ContainerValue = styled(Container)`
   grid-area: value;
   flex-direction: column;
   justify-content: center;
-  padding: 0 0 0 70px;
+  padding: 0 0 0 0;
 `;
 const ContainerValueText = styled.span`
   ${Text}
@@ -228,18 +259,21 @@ const ImgPlate = styled.img`
   }
   &.background {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 925px;
-    height: 896px;
+      top: -10px;
+      left: 24px;
+      width: 890px;
+      height: 845px;
+      transform: scale(1.05)
   }
 `;
 
 const Chart = styled.div`
   grid-area: chart;
   display: flex;
-  justify-content: center;
+//   justify-content: center;
   align-items: center;
+  position:relative;
+    left:60px;
 `;
 
 const TableSet = styled.div`
@@ -251,50 +285,38 @@ const TableSet = styled.div`
 
 const TableText = styled.span`
   height: 50px;
-  padding: 10px 0 0 0;
-  font-family: Barlow;
-  ${Text}
+// padding: 10px 0 0 0;
+display: flex;
+justify-content: center;
+align-items: center;
+${Text}
 `;
 
 const Table = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
+  width:100%;
+height: 230px;
+display: flex;
+justify-content: center;
+align-items: center;
+z-index: 1;
 `;
 
 const TableContainer = styled(Table)`
   width: 160px;
-  height: 257px;
+  height: 240px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 10px 0 0 0;
+//   padding: 10px 0 0 0;
 
   &.building {
-    width: 180px;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(69, 108, 136, 0),
-      rgba(32, 151, 192, 0.55) 24%,
-      rgba(32, 151, 192, 0.55) 86%,
-      rgba(69, 108, 136, 0)
-    );
+    width: 200px;
     margin: 0 0 0 8px;
   }
 
   &.value {
-    width: 180px;
-    background-image: linear-gradient(
-      to bottom,
-      rgba(69, 108, 136, 0),
-      rgba(16, 81, 137, 0.55) 24%,
-      rgba(16, 81, 137, 0.55) 86%,
-      rgba(69, 108, 136, 0)
-    );
+    width: 200px;
     margin: 0 0 0 8px;
     align-items: center; // 수평
   }
@@ -304,50 +326,55 @@ const TextSet = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background: rgba(15, 25, 40, 0.5) 0% 0% no-repeat padding-box;
+    width:100%;
+    &.value{
+        background: #0F1928 0% 0% no-repeat padding-box;
+    }
 `;
+
+const TestBorder = styled.div`
+    position: relative;
+    left: 0;
+    width: 200px;
+    height: 1px;
+    background: #27303E 0% 0% no-repeat padding-box;
+    opacity: 1;
+`;
+
 
 // event button
 const EvntBtn = styled.div`
-  width: 80px;
-  height: 30px;
-  border-radius: 15px;
-  border: solid 1px #688397;
-  background-color: rgba(101, 183, 255, 0.35);
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
-  text-shadow: 0 0 6px #5cafff;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: rgb(220, 86, 86);
-  margin: 0 35px 0 0;
+    width: 153px;
+    height: 39px;
+    background: #2CD2A2 0% 0% no-repeat padding-box;
+    border-radius: 8px;
+    opacity: 1;
   &.invisible {
     visibility: hidden;
   }
 `;
 const EvntText = styled.span`
   // padding: 0 0 3px 10px;
-  font-family: EliceDigitalBaeum;
-  font-size: 15px;
-  line-height: 1.4;
+//   font-family: EliceDigitalBaeum;
+//   font-size: 15px;
+//   line-height: 1.4;
+    width: 62px;
+    text-align: center;
+    font: normal normal normal 20px/24px Pretendard;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    opacity: 1;
 `;
 const Evnt = styled.div`
-  // border: 2px solid #688397;
   position: relative;
   grid-area: title;
-  // grid-area: evnt btn;
-  // position: relative;
-
-  // background-image: linear-gradient(to left, rgba(98, 128, 155, 0), #5e86a8, rgba(94, 142, 183, 0));
-  // // justify-content: flex-start;
-  // // flex-wrap: nowrap;
-  margin: 0 0 0 830px;
+  right: 60px;
+  display: flex;
+  justify-content: flex-end;
 `;
 
 // Styled-components
@@ -393,9 +420,14 @@ const Popup = styled.div`
   padding: 15px;
   border-radius: 13px;
   //   background-color: rgba(61, 133, 201, 0.07); /* 어두운 반투명 오버레이 */
-  background-color: rgb(14, 44, 70); /* 어두운 반투명 오버레이 */
+//   background-color: rgb(14, 44, 70); /* 어두운 반투명 오버레이 */
+  background-color: #151F38;
   opacity: 0.95;
   z-index: 9999; /* 다른 요소보다 위에 표시 */
+  box-shadow : 5px 5px 5px 0px rgba(0,0,0,0.3);
+  border: 2px solid transparent; // 보더 추가
+//   border: 2px solid #0F1928; // 보더 추가
+  border-image : linear-gradient(90deg, #3681FF 0%, #28FFF8 51%, #2CD2A2 100%) 1;
 `;
 
 // ✅ 헤더 스타일
@@ -403,7 +435,8 @@ const PopupHeader = styled.div`
   display: grid;
   grid-template-columns: 15px auto;
   align-items: center;
-  color: rgba(215, 229, 149, 0.88);
+//   color: rgba(215, 229, 149, 0.88);
+  color:  #FFFFFF;
   font-size: 27px;
   font-weight: bold;
 `;
@@ -524,10 +557,10 @@ const chartsOptions = {
         labels: {
             format: "{value:%Y-%m-%d %H:%M}",
             style: {
-                fontFamily: "Barlow",
+                fontFamily: "Pretendard",
                 fontSize: "12px",
-                color: "#d3e7ff",
-                textShadow: "0 0 6px #269bbe",
+                color: "#CFD1D4",
+                // textShadow: "0 0 6px #269bbe",
             },
         },
         lineColor: "#5e7aa5",
@@ -566,9 +599,9 @@ const chartsOptions = {
         gridLineColor: false,
         labels: {
             style: {
-                fontFamily: "Barlow",
+                fontFamily: "Pretendard",
                 fontSize: "12px",
-                color: "#d3e7ff",
+                color: "#CFD1D4",
             },
         },
         lineColor: "#5e7aa5",
@@ -958,7 +991,8 @@ function PowerPeakRight() {
 
                             {/* ✅ 내용 부분 */}
                             <PopupContent>
-                                <p>현재 사용량({gjpowervalue}kW)이 30분 후에</p>
+                                {/* <p>현재 사용량({gjpowervalue}kW)이 30분 후에</p> */}
+                                <p>현재 전력사용량이 30분 후에에</p>
                                 <p>최대전력수요전력({gjpeakvalue}kW)을 초과할 것으로 예측됨</p>
                                 <CloseButton onClick={PopupClose}>닫기</CloseButton>
                             </PopupContent>
@@ -969,8 +1003,8 @@ function PowerPeakRight() {
             <ImgPlate className="background" src={imgbackground}></ImgPlate>
             <InfoSet>
                 <Title className="title">
-                    주요 설비 총 전력
                     <TitleBorder className="top"></TitleBorder>
+                    <TitleText>주요 설비 총 전력</TitleText>
                     <TitleBorder className="bottom"></TitleBorder>
                 </Title>
                 <Evnt>
@@ -1024,68 +1058,112 @@ function PowerPeakRight() {
                     <ImgPlate className="plate" src={imgplate}></ImgPlate>
                 </ContainerValue>
             </InfoSet>
+            <InfoSetBorder></InfoSetBorder>
             <Chart>
                 <HighchartsReact highcharts={Highcharts} options={options} />
             </Chart>
+            <ChartBorder></ChartBorder>
             <TableSet>
                 <TableText className="table_title">주요 전력 소비 인자</TableText>
                 <Table>
                     <TableContainer className="building">
+                        <TestBorder/>
+                        <TextSet>
                         <TableText className="table_char">공조기 실외기</TableText>
+                        </TextSet>
+                        <TestBorder/>
+                        <TextSet>
                         <TableText className="table_char">에어컨 실외기</TableText>
+                        </TextSet>
+                        <TestBorder/>
+                        <TextSet>
                         <TableText className="table_char">보일러</TableText>
+                        </TextSet>
+                        <TestBorder/>
+                        <TextSet>
                         <TableText className="table_char">팬</TableText>
+                        </TextSet>
+                        <TestBorder/>
                     </TableContainer>
                     <TableContainer className="value">
-                        <TextSet>
+                        <TestBorder/>
+                        <TextSet className='value'>
                             <TableText className="table_num">
                                 {powerVal1_1.toFixed(2)}
                             </TableText>
                             <TableText className="table_degree">kW</TableText>
                         </TextSet>
-                        <TextSet>
+                        <TestBorder/>
+                        <TextSet className='value'>
                             <TableText className="table_num">
                                 {powerVal2_1.toFixed(2)}
                             </TableText>
                             <TableText className="table_degree">kW</TableText>
                         </TextSet>
-                        <TextSet>
+                        <TestBorder/>
+                        <TextSet className='value'>
                             <TableText className="table_num">
                                 {powerVal3_1.toFixed(2)}
                             </TableText>
                             <TableText className="table_degree">kW</TableText>
                         </TextSet>
-                        <TextSet>
+                        <TestBorder/>
+                        <TextSet className='value'>
                             <TableText className="table_num">
                                 {powerVal4_1.toFixed(2)}
                             </TableText>
                             <TableText className="table_degree">kW</TableText>
                         </TextSet>
+                        <TestBorder/>
                     </TableContainer>
                     <TableContainer className="building">
+                        <TestBorder/>
+                        <TextSet>
                         <TableText className="table_char">바닥난방</TableText>
+                        </TextSet>
+                        <TestBorder/>
+                        <TextSet>
                         <TableText className="table_char">전열교환기</TableText>
-                        <TableText className="table_char">조명</TableText>
+                        </TextSet>
+                        <TestBorder/>
+                        <TextSet>
+                        <TableText className="table_char">조명</TableText>\
+                        </TextSet>
+                        <TestBorder/>
+                        <TextSet>
+                        <TableText className="table_char"></TableText>\
+                        </TextSet>
+                        <TestBorder/>
                     </TableContainer>
                     <TableContainer className="value">
-                        <TextSet>
+                        <TestBorder/>
+                        <TextSet className='value'>
                             <TableText className="table_num">
                                 {powerVal1_2.toFixed(2)}
                             </TableText>
                             <TableText className="table_degree">kW</TableText>
                         </TextSet>
-                        <TextSet>
+                        <TestBorder/>
+                        <TextSet className='value'>
                             <TableText className="table_num">
                                 {powerVal2_2.toFixed(2)}
                             </TableText>
                             <TableText className="table_degree">kW</TableText>
                         </TextSet>
-                        <TextSet>
+                        <TestBorder/>
+                        <TextSet className='value'>
                             <TableText className="table_num">
                                 {powerVal3_2.toFixed(2)}
                             </TableText>
                             <TableText className="table_degree">kW</TableText>
                         </TextSet>
+                        <TestBorder/>
+                        <TextSet className='value'>
+                            <TableText className="table_num">
+                            </TableText>
+                            <TableText className="table_degree"></TableText>
+                        </TextSet>
+                        <TestBorder/>
                     </TableContainer>
                 </Table>
             </TableSet>

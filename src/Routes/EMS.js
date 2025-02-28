@@ -12,7 +12,8 @@ const Wrapper = styled.div`
   // position: relative;
   background-size: cover;
   background-position: center;
-  background: transparent url(${bg}) 100% 100% no-repeat padding-box;
+  background-image: url(${bg});
+  // background: transparent url(${bg}) 100% 100% no-repeat padding-box;
   width: 100vw;
   height: 100vh;
   min-height: 1080px;

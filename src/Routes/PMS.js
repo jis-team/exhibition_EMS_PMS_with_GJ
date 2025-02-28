@@ -21,9 +21,9 @@ const Wrapper = styled.div`
 `;
 
 const Headerclass = styled.div`
-  // height: 90px;
+  height: 90px;
   // max-width: 1920px;
-  // margin: auto;
+  margin: auto;
 `;
 const PmsWrapper = styled.div`
   position: relative;

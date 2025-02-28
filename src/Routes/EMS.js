@@ -23,10 +23,10 @@ const Wrapper = styled.div`
 `;
 
 const Headerclass = styled.div`
-  //   position: absolute;
-  // height: 90px;
-  // max-width: 1920px;
-  // margin: auto;
+    // position: absolute;
+    height: 90px;
+    // max-width: 1920px;
+    margin: auto;
 `;
 
 const EmsWrapper = styled.div`

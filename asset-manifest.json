@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/exhibition_EMS_PMS_with_GJ/static/css/main.4d4934a9.css",
-    "main.js": "/exhibition_EMS_PMS_with_GJ/static/js/main.fd8037a9.js",
+    "main.js": "/exhibition_EMS_PMS_with_GJ/static/js/main.2faeb5da.js",
     "static/js/488.7a876c9d.chunk.js": "/exhibition_EMS_PMS_with_GJ/static/js/488.7a876c9d.chunk.js",
     "static/media/bg.png": "/exhibition_EMS_PMS_with_GJ/static/media/bg.7670b52dcc7e3c93cf21.png",
     "static/media/Pretendard-Regular.otf": "/exhibition_EMS_PMS_with_GJ/static/media/Pretendard-Regular.de88013f2ea98a04dede.otf",
@@ -14,7 +14,7 @@
     "static/media/pmsmotor_bearing.png": "/exhibition_EMS_PMS_with_GJ/static/media/pmsmotor_bearing.30432a9e0b65753213cb.png",
     "static/media/pmspump_normal.png": "/exhibition_EMS_PMS_with_GJ/static/media/pmspump_normal.d9c065a5eef975dcae0c.png",
     "static/media/home_background_1.png": "/exhibition_EMS_PMS_with_GJ/static/media/home_background_1.c51ca4f685104a913c11.png",
-    "static/media/EMS-장기가압장bg@2x.png": "/exhibition_EMS_PMS_with_GJ/static/media/EMS-장기가압장bg@2x.d8ec10836918c05fec7f.png",
+    "static/media/EMS-장기가압장bg.png": "/exhibition_EMS_PMS_with_GJ/static/media/EMS-장기가압장bg.d0bec5f928a67a904ba3.png",
     "static/media/PretendardVariable.subset.2.woff2": "/exhibition_EMS_PMS_with_GJ/static/media/PretendardVariable.subset.2.9667e13e5c71c8804d7b.woff2",
     "static/media/PretendardVariable.subset.19.woff2": "/exhibition_EMS_PMS_with_GJ/static/media/PretendardVariable.subset.19.3e26efb755349142f245.woff2",
     "static/media/PretendardVariable.subset.25.woff2": "/exhibition_EMS_PMS_with_GJ/static/media/PretendardVariable.subset.25.236bc3f20de2b36554a2.woff2",
@@ -116,7 +116,6 @@
     "static/media/PMS_M_rotor.png": "/exhibition_EMS_PMS_with_GJ/static/media/PMS_M_rotor.b4488b8f1e2ac692a9e7.png",
     "static/media/PMS_P_rms.png": "/exhibition_EMS_PMS_with_GJ/static/media/PMS_P_rms.027ed9d3eeb57e913bed.png",
     "static/media/PMS_M_temp.png": "/exhibition_EMS_PMS_with_GJ/static/media/PMS_M_temp.477057f2a7f99a1b5531.png",
-    "static/media/ems-alarm.png": "/exhibition_EMS_PMS_with_GJ/static/media/ems-alarm.fbc3c6cc406b4e01f7cc.png",
     "static/media/PretendardVariable.subset.65.woff2": "/exhibition_EMS_PMS_with_GJ/static/media/PretendardVariable.subset.65.04f5608248ecc5398eb7.woff2",
     "static/media/PretendardVariable.subset.64.woff2": "/exhibition_EMS_PMS_with_GJ/static/media/PretendardVariable.subset.64.655f98243e6df944eb9d.woff2",
     "static/media/PretendardVariable.subset.66.woff2": "/exhibition_EMS_PMS_with_GJ/static/media/PretendardVariable.subset.66.e62b83b62a94bc3aadd3.woff2",
@@ -124,12 +123,13 @@
     "static/media/alertB.svg": "/exhibition_EMS_PMS_with_GJ/static/media/alertB.28c08a7eae04f52328eb0695960f1de8.svg",
     "static/media/alertC.svg": "/exhibition_EMS_PMS_with_GJ/static/media/alertC.f06d4a747031e7bbca334d03416e6d42.svg",
     "index.html": "/exhibition_EMS_PMS_with_GJ/index.html",
+    "static/media/warning.svg": "/exhibition_EMS_PMS_with_GJ/static/media/warning.1ce2ff60e38012b2dd875c32c50d16da.svg",
     "main.4d4934a9.css.map": "/exhibition_EMS_PMS_with_GJ/static/css/main.4d4934a9.css.map",
-    "main.fd8037a9.js.map": "/exhibition_EMS_PMS_with_GJ/static/js/main.fd8037a9.js.map",
+    "main.2faeb5da.js.map": "/exhibition_EMS_PMS_with_GJ/static/js/main.2faeb5da.js.map",
     "488.7a876c9d.chunk.js.map": "/exhibition_EMS_PMS_with_GJ/static/js/488.7a876c9d.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4d4934a9.css",
-    "static/js/main.fd8037a9.js"
+    "static/js/main.2faeb5da.js"
   ]
 }

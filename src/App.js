@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import EMS from "./Routes/EMS";
 import PMS from "./Routes/PMS";
 import Home from "./Routes/Home";
-import { createGlobalStyle  } from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 import "./App.css";
 // font
@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     
     // width: 1920px;
     // height: 1080px;
-    overflow-y: auto;
+    // overflow-y: auto;
   }
   // html::line-height: 1.15;
   html::-webkit-scrollbar {

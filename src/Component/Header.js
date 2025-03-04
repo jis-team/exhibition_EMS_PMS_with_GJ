@@ -159,10 +159,10 @@ function Header() {
       <LoginText>Home</LoginText>
     </LoginBtn> */}
         <LoginBtn onClick={() => navigate("/EMS")}>
-          <LoginText>전력피크분석</LoginText>
+          <LoginText>EMS</LoginText>
         </LoginBtn>
         <LoginBtn onClick={() => navigate("/PMS")}>
-          <LoginText>설비정밀진단</LoginText>
+          <LoginText>PMS</LoginText>
         </LoginBtn>
       </Login>
     </Headerdiv>

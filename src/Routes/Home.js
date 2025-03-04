@@ -18,7 +18,7 @@ const HomeWrapper = styled.div`
   background: linear-gradient(#466d89, #041527);
   width: 100vw;
   height: 100vh;
-  min-height: 1080px;
+  min-height: 911px;
   text-align: center;
   overflow: hidden;
   user-select: none;

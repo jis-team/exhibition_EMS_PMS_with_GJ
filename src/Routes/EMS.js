@@ -2,13 +2,18 @@ import PowerPeakLeft from "../Component/PowerPeakLeft";
 import PowerPeakRight from "../Component/PowerPeakRight";
 import Header from "../Component/Header";
 import styled from "styled-components";
+ //img
+ import bg from "../img/bg.png"
 
 const Wrapper = styled.div`
   // width: 100%;
   // min-height: 100vh;
   // overflow-x: hidden;
   // position: relative;
-  background: linear-gradient(#466d89, #041527);
+  background-size: cover;
+  background-position: center;
+  background-image: url(${bg});
+  // background: transparent url(${bg}) 100% 100% no-repeat padding-box;
   width: 100vw;
   height: 100vh;
   min-height: 1080px;
@@ -18,10 +23,10 @@ const Wrapper = styled.div`
 `;
 
 const Headerclass = styled.div`
-  //   position: absolute;
-  height: 90px;
-  max-width: 1920px;
-  margin: auto;
+    // position: absolute;
+    height: 90px;
+    // max-width: 1920px;
+    margin: auto;
 `;
 
 const EmsWrapper = styled.div`
@@ -33,11 +38,10 @@ const EmsWrapper = styled.div`
   margin: auto;
   display: grid;
   grid-template-columns: repeat(3, 940px 10px 940px);
-  grid-template-rows: repeat(3, 10% 1% 89%);
+  grid-template-rows: repeat(2, 11% 89%);
   grid-auto-flow: dense;
   grid-template-areas:
     "title-set title-set title-set"
-    ". . ."
     "left . right";
 `;
 
@@ -47,21 +51,19 @@ const Titleset = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-around;
+  position:relative;
+  left:40px;
 `;
 
 const TitletSetText = styled.span`
-  font-family: EliceDigitalBaeum;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  color: #fff;
-  width: 725px;
-  text-shadow: 0 0 6px #5cafff;
-  // font-family: EliceDigitalBaeum-Bd;
-  text-shadow: 0 0 3px #000;
-  font-size: 30px;
-  line-height: 1.47;
+  text-align: left;
+  font: normal normal bold 40px/48px Pretendard;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
+  // width: 583px;
+  // height: 48px;
+  
 `;
 
 function EMS() {

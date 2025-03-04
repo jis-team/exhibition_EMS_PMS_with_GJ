@@ -1,5 +1,6 @@
-// import Header from "../Component/Header";
-import Headerv2 from "../Component/HeaderVer2";
+import Header from "../Component/Header";
+// import Headerv2 from "../Component/HeaderVer2";
+
 import styled from "styled-components";
 import PumpMoterLeft from "../Component/PumpMoterLeft";
 import PumpMoterMiddle from "../Component/PumpMoterMiddle";
@@ -22,20 +23,28 @@ const Wrapper = styled.div`
   // overflow: hidden;
   // user-select: none;
 
-  // position: relative;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 1920px;
-  height: 1080px;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 
   background: transparent url(${pumpBackground}) 0% 0% no-repeat padding-box;
+  background-size: 100% 100vh;
   opacity: 1;
+
+  // position: absolute;
+  // top: 0px;
+  // left: 0px;
+  // width: 1920px;
+  // height: 1080px;
+
+  // background: transparent url(${pumpBackground}) 0% 0% no-repeat padding-box;
+  // opacity: 1;
 `;
 
 const Headerclass = styled.div`
   height: 90px;
-  max-width: 1920px;
+  // max-width: 1920px;
   margin: auto;
 `;
 // const PmsWrapper = styled.div`
@@ -57,8 +66,18 @@ const Headerclass = styled.div`
 // `;
 
 const MiddleSet = styled.div`
+  position: relative;
+  top: 0;
+  left: 50%;
+  /* 기본적으로 중앙에 배치 */
+  transform: translate(-50%, -10%);
+  transform-origin: center center;
+
+  /* 디자인 기준 크기 */
+  width: 1920px;
+  height: 1080px;
+
   // position: absolute;
-  // position: relative;
   // display: flex;
   // justify-content: center; /* 좌측 정렬 */
   // align-items: center; /* 수직 중앙 정렬 */
@@ -170,13 +189,35 @@ function PMS() {
   return (
     <Wrapper>
       <Headerclass>
-        <Headerv2 />
+        {/* <Headerv2 /> */}
+        <Header />
       </Headerclass>
-      <TitletSetText>펌프 및 모터 - 정밀진단</TitletSetText>
+      {/* <TitletSetText>펌프 및 모터 - 정밀진단</TitletSetText> */}
       {/* <Titleset>
         </Titleset> */}
 
+      {/* <PumpMoterLeft
+        pumpnum={parentData}
+        setPumpNum={testfunction}
+        pmsStatsfunction={pmsStatsfunction}
+      />
+      <PumpMoterMiddle
+        pumpnum={parentData}
+        setPumpNum={testfunction}
+        pmsStats={pmsStatsF}
+        />
+      <PumpMoterRight
+        pumpnum={parentData}
+        setPumpNum={testfunction}
+        pmsStatsfunction={pmsStatsfunction2}
+      />
+      <PumpMoterBottom
+      pumpnum={parentData}
+      pmsStatsfunction={pmsStatsfunction1}
+      /> */}
+
       <MiddleSet>
+        <TitletSetText>펌프 및 모터 - 정밀진단</TitletSetText>
         <PumpMoterLeft
           pumpnum={parentData}
           setPumpNum={testfunction}

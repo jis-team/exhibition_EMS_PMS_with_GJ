@@ -1,7 +1,5 @@
 // logo
-import logo from "../juin_logo_.jpg";
-// import logo from '../kwater.png';
-import logo_down_img from "../header_title_down.png";
+import logo from "../img/logo.png";
 
 import React from "react";
 import { useState, useEffect } from "react";
@@ -12,90 +10,71 @@ const Headerdiv = styled.div`
   width: 100%;
   max-height: 100px;
   position: fixed; // 스크롤 시 헤더가 따라서 내려오게 position 설정
-  top: 0;
+  top: 44px;
   z-index: 999; // header가 항상 화면구성에서 맨 위여야 함 => z-index 설정 높임
   display: grid;
   align-content: center;
-  grid-template-columns: repeat(3, 25% 50% 25%);
+  grid-template-columns: 25% 58% 17%;
   grid-auto-flow: dense;
-  grid-template-areas: "timer title login";
-  margin-top: 20px;
+  grid-template-areas: "title login timer";
+  // margin-top: 44px;
 `;
 const Timer = styled.div`
   grid-area: timer;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
+  position: relative;
   text-align: left;
-  color: #fff;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
+  // white-space: nowrap;
+  justify-content: flex-end;
   align-items: center;
-  height: 136%;
-`;
+  right:40px;
+`; 
 
 const Timertext = styled.span`
-  width: 83px;
-  height: 29px;
-  font-family: EliceDigitalBaeum;
-  font-size: 20px;
-  line-height: 1.45;
+  width: 80px;
+  height: 24px;
+  text-align: left;
+  font: normal normal 20px/24px Pretendard;
+  letter-spacing: 0;
+  color: #FFFFFF;
+  opacity: 1;
+  margin:10px;
 `;
 
 const Timertime = styled.span`
-  width: 260px;
-  height: 30px;
-  // font-family: Barlow;
-  font-size: 25px;
-  line-height: 1.2;
+  width: 188px;
+  height: 24px;
+  text-align: left;
+  font: normal normal normal 20px/24px Pretendard;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
 `;
 
 const Title = styled.div`
+  height: 34px;
   grid-area: title;
   position: relative;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: center;
+  // justify-content: center;
   align-items: flex-end;
-`;
-const Titletext = styled.div`
-  width: 500px;
-  font-family: KIMM_B;
-  font-size: 40px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.05;
-  letter-spacing: normal;
-  text-align: center;
-  color: #fff;
-  cursor: pointer;
+  left:40px;
 `;
 
 const Logo = styled.img`
-  height: 30px;
-  width: 190px;
-  background-size: 100% 100%;
+  height: 34px;
+  width: 288px;
+  background-size: 0% 0%;
   background-repeat: no-repeat;
-`;
-
-const Titleimg = styled.img`
-  width: 967px;
-  height: 27px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  position: absolute;
-  bottom: -34px;
+  cursor : pointer;
 `;
 
 const Login = styled.div`
   grid-area: login;
   position: relative;
-  top: 15px;
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -105,34 +84,41 @@ const Login = styled.div`
 `;
 
 const LoginBtn = styled.div`
-  width: 120px;
-  height: 30px;
-  border-radius: 15px;
-  border: solid 1px #688397;
-  background-color: rgba(101, 183, 255, 0.35);
+  width: 153px;
+  height: 39px;
+  border: 1px solid var(---9fa3a9);
+  background: #FFFFFF33 0% 0% no-repeat padding-box;
+  box-shadow: 0px 3px 10px #00000033;
+  border: 1px solid #9FA3A9;
+  border-radius: 8px;
+  opacity: 1;
+  // border-radius: 15px;
+  // border: solid 1px #688397;
+  // background-color: rgba(101, 183, 255, 0.35);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  text-shadow: 0 0 6px #5cafff;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  letter-spacing: normal;
-  text-align: center;
-  color: #b4dffa;
-  margin: 0 35px 0 0;
+  // text-shadow: 0 0 6px #5cafff;
+  // font-weight: normal;
+  // font-stretch: normal;
+  // font-style: normal;
+  // letter-spacing: normal;
+  // text-align: center;
+  // color: #b4dffa;
+  margin: 0 20px 0 0;
   &.invisible {
     visibility: hidden;
   }
 `;
 const LoginText = styled.span`
-  padding: 0 0 3px 10px;
-  font-family: EliceDigitalBaeum;
-  font-size: 15px;
-  line-height: 1.4;
+  text-align: left;
+  font: normal normal normal 20px/24px Pretendard;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
 `;
 
 //날짜 및 시간 포맷팅 함수
@@ -161,15 +147,11 @@ function Header() {
   return (
     <Headerdiv>
       <Timer>
-        <Timertext>현재시간 </Timertext>
+        <Timertext>현재시간</Timertext>
         <Timertime>{formatDate(currentTime)}</Timertime>
       </Timer>
       <Title>
-        <Logo src={logo} alt="logo" />
-        <Titletext onClick={() => navigate("/")}>
-          AI기반 스마트 정수장
-        </Titletext>
-        <Titleimg src={logo_down_img} alt="logo"></Titleimg>
+        <Logo src={logo}  alt="logo" onClick={() => navigate("/")} />
       </Title>
 
       <Login>

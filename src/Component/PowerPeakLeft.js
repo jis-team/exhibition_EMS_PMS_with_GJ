@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { css } from "styled-components";
 import imgplate from '../peak_value_plate.png';
 // import imgbackground from '../power_component_background.png';
-import imgbackground from '../img/EMS/EMS-장기가압장bg@2x.png'
+import imgbackground from '../img/EMS/EMS-장기가압장bg.png'
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="warning" transform="translate(-729 -437.096)">
+    <circle id="타원_31" data-name="타원 31" cx="12" cy="12" r="12" transform="translate(729 437.096)" fill="#f5bf00"/>
+    <g id="그룹_12407" data-name="그룹 12407" transform="translate(732.544 440.544)">
+      <rect id="사각형_9677" data-name="사각형 9677" width="17" height="17" transform="translate(0.457 -0.448)" fill="#0f1928" opacity="0"/>
+      <path id="Alarm_1_" data-name="Alarm (1)" d="M18.235,17.548,11.478,5.382a.814.814,0,0,0-1.422,0L3.291,17.548A.813.813,0,0,0,4,18.757H17.524a.813.813,0,0,0,.711-1.209ZM10.884,16.8a.733.733,0,1,1,.733-.733A.735.735,0,0,1,10.884,16.8Zm.733-2.932a.733.733,0,0,1-1.466,0V10.212a.733.733,0,1,1,1.466,0v3.657Z" transform="translate(-2.259 -4.065)" fill="#0f1928"/>
+    </g>
+  </g>
+</svg>

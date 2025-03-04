@@ -13,12 +13,28 @@ function MoterRoterChart(props) {
       type: "spline",
       backgroundColor: false,
       zoomType: "x",
-      height: 147,
+      height: 138,
+      width: 440,
+      spacing: [10, 16, 10, 12],
+      events: {
+        load: function () {
+          const chart = this;
+          // (x, y) 위치에 텍스트를 추가합니다.
+          chart.renderer
+            .text(
+              '<p style="color: #fff; font-family: Pretendard; font-weight: bold;">모터 </p>' +
+                '<p style="color: #fff; font-family: Pretendard; font-weight: regular; font-size: 12px;">회전자 결함</p>',
+              20,
+              30
+            )
+            .add();
+        },
+      },
     },
     title: {
       useHTML: true,
       floating: true,
-      text: "모터 회전자 결함",
+      // text: "모터 회전자 결함",
       style: {
         color: "transparent",
       },
@@ -31,15 +47,20 @@ function MoterRoterChart(props) {
       align: "right",
       verticalAlign: "top",
       borderWidth: 0,
-      x: -30,
-      y: 0,
+      // x: -30,
+      // y: 0,
       itemStyle: {
-        fontFamily: "EliceDigitalBaeum",
-        textShadow: "0 0 9px #5cafff",
-        fontSize: "13px",
+        textAlign: "right",
+        fontFamily: "Pretendard",
+        fontWeight: "normal",
+        fontSize: "12px",
+        lineHeight: "14px",
+        letterSpacing: "0px",
+        opacity: 1,
       },
+      symbolWidth: 10,
       labelFormatter: function () {
-        return `<span style="color: #fff; width: 100px;">  ${this.name} </span>`;
+        return `<span style="color: #fff; font-family: Pretendard; font-weight: regular;">  ${this.name} </span>`;
       },
     },
     tooltip: {
@@ -54,13 +75,16 @@ function MoterRoterChart(props) {
       type: "datetime",
       labels: {
         format: "{value:%m-%d}",
+        symbolHeight: 12,
+        symbolWidth: 12,
         style: {
-          fontFamily: "Barlow",
+          fontFamily: "Pretendard",
           fontSize: 12,
-          color: "rgba(211, 231, 255, 0.7)",
+          color: "#CFD1D4",
         },
       },
-      lineColor: "rgba(157, 191, 255, 0.5)",
+      lineColor: "#9FA3A9",
+      tickColor: "#9FA3A9",
       tickInterval: 1000 * 60 * 60 * 24, // 24시간
     },
     yAxis: {
@@ -68,43 +92,57 @@ function MoterRoterChart(props) {
         align: "middle",
         text: "인자",
         useHTML: true,
-        offset: 35,
+        offset: 40,
         rotation: 90,
-        x: 0,
-        y: -5,
+        // x: 0,
+        // y: -5,
         style: {
-          fontFamily: "Barlow",
-          fontSize: "6px",
-          fontWeight: "bold",
-          color: "#d3e7ff",
+          fontFamily: "Pretendard",
+          fontStyle: "normal",
+          fontWeigth: "normal",
+          fontSize: "8px",
+          lineHeight: "10px",
+          color: "#CFD1D4",
+          letterSpacing: "0px",
+          textAlign: "left",
         },
       },
-      lineColor: "rgba(157, 191, 255, 0.5)",
+      lineColor: "#9FA3A9",
       lineWidth: 1,
       max: 3,
       min: 0,
       gridLineColor: false,
       labels: {
+        align: "left",
+        x: -30,
         style: {
-          fontFamily: "Barlow",
-          fontSize: 13,
-          color: "#d3e7ff",
+          fontFamily: "Pretendard",
+          fontStyle: "normal",
+          fontWeigth: "normal",
+          fontSize: "12px",
+          lineHeight: "14px",
+          color: "#CFD1D4",
+          letterSpacing: "2px",
         },
       },
       plotLines: [
         {
-          color: "#ff0000",
+          color: "#EA002C",
           dashStyle: "shortDash",
           value: RoterC,
           width: 1,
           label: {
             text: "결함",
-            color: "#ff0000",
+            color: "#EA002C",
             textAlign: "left",
-            x: 330,
+            x: 347,
             style: {
-              color: "#ff0000",
-              fontSize: 6,
+              fontFamily: "Pretendard",
+              fontStyle: "normal",
+              fontWeigth: "normal",
+              fontSize: "8px",
+              color: "#EA002C",
+              letterSpacing: "0px",
             },
           },
         },

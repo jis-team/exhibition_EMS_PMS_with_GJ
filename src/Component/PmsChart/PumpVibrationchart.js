@@ -1,4 +1,4 @@
-import Highcharts from "highcharts";
+import Highcharts, { chart, offset } from "highcharts";
 import HighchartsReact from "highcharts-react-official";
 
 import { useState, useEffect } from "react";
@@ -15,12 +15,33 @@ function PumpVibrationChart(props) {
       type: "spline",
       backgroundColor: false,
       zoomType: "x",
-      height: 147,
+      // height: 147,
+      // height: 155,
+      // width: 364,
+      height: 138,
+      width: 440,
+      spacing: [1, 16, 10, 12],
+      // spacingLeft: 20,
+      // offset: 30,
+      events: {
+        load: function () {
+          const chart = this;
+          // (x, y) 위치에 텍스트를 추가합니다.
+          chart.renderer
+            .text(
+              '<p style="color: #fff; font-family: Pretendard; font-weight: bold;">펌프 </p>' +
+                '<p style="color: #fff; font-family: Pretendard; font-weight: regular; font-size: 12px;">부하/반부하 총진동량</p>',
+              20,
+              22
+            )
+            .add();
+        },
+      },
     },
     title: {
       useHTML: true,
       floating: true,
-      text: "펌프 부하/반부하 총진동량",
+      // text: "펌프 부하/반부하 총진동량",
       style: {
         color: "transparent",
       },
@@ -33,15 +54,33 @@ function PumpVibrationChart(props) {
       align: "right",
       verticalAlign: "top",
       borderWidth: 0,
-      x: -30,
-      y: 0,
+      // x: -30,
+      // x: 0,
+      // y: 0,
       itemStyle: {
-        fontFamily: "EliceDigitalBaeum",
-        textShadow: "0 0 9px #5cafff",
-        fontSize: "13px",
+        // fontFamily: "EliceDigitalBaeum",
+        // textShadow: "0 ,0 9px #5cafff",
+        // fontSize: "12px",
+        textAlign: "right",
+        fontFamily: "Pretendard",
+        fontWeight: "normal",
+        fontSize: "12px",
+        lineHeight: "14px",
+        letterSpacing: "0px",
+        opacity: 1,
       },
+      symbolWidth: 10,
+      // symbolHeight: 100,
+      // symbolWidth: 20,
+      // squareSymbol: false,
+      // symbolRadius: 8,
+      // symbolPadding: 8,
+
       labelFormatter: function () {
-        return `<span style="color: #fff; width: 100px;">  ${this.name} </span>`;
+        // <span style="color: #fff; font-family: Pretendard; font-weight: regular;"> ${this.name} </span>
+        return `
+        <span style="color: #fff; font-family: Pretendard; font-weight: regular;"> ${this.name} </span>
+        `;
       },
     },
     tooltip: {
@@ -50,6 +89,7 @@ function PumpVibrationChart(props) {
       useHTML: true,
       valueSuffix: " rms/mm/s",
     },
+    // X축
     xAxis: {
       title: {
         text: "",
@@ -57,92 +97,145 @@ function PumpVibrationChart(props) {
       type: "datetime",
       labels: {
         format: "{value:%m-%d}",
+        symbolHeight: 12,
+        symbolWidth: 12,
         style: {
-          fontFamily: "Barlow",
+          fontFamily: "Pretendard",
           fontSize: 12,
-          color: "rgba(211, 231, 255, 0.7)",
+          color: "#CFD1D4",
         },
       },
-      lineColor: "rgba(157, 191, 255, 0.5)",
+      // lineColor: "rgba(157, 191, 255, 0.5)",
+      lineColor: "#9FA3A9",
+      tickColor: "#9FA3A9",
       tickInterval: 1000 * 60 * 60 * 24, // 24시간
     },
+    // Y축
     yAxis: {
       title: {
         align: "middle",
         text: "rms/mm/s",
         useHTML: true,
-        offset: 35,
+        // offset: 35,
+        offset: 40,
+        // offset: 30,
         rotation: 90,
-        x: 0,
-        y: -5,
+        tickAmount: 3,
+        // x: 0,
+        // y: -5,
         style: {
-          fontFamily: "Barlow",
-          fontSize: "6px",
-          fontWeight: "bold",
-          color: "#d3e7ff",
+          fontFamily: "Pretendard",
+          fontStyle: "normal",
+          fontWeigth: "normal",
+          fontSize: "8px",
+          lineHeight: "10px",
+          color: "#CFD1D4",
+          letterSpacing: "0px",
+          textAlign: "left",
         },
       },
-      lineColor: "rgba(157, 191, 255, 0.5)",
+      // // lineColor: "rgba(157, 191, 255, 0.5)",
+      lineColor: "#9FA3A9",
       lineWidth: 1,
       max: 10,
       min: 0,
       gridLineColor: false,
+      // gridLineColor: true,
+
       labels: {
+        // x: 0,
+        // left: 50,
+        align: "left",
+        x: -30,
         style: {
-          fontFamily: "Barlow",
-          fontSize: 13,
-          color: "#d3e7ff",
+          fontFamily: "Pretendard",
+          fontStyle: "normal",
+          fontWeigth: "normal",
+          fontSize: "12px",
+          lineHeight: "14px",
+          color: "#CFD1D4",
+          letterSpacing: "2px",
         },
       },
+
       plotLines: [
         // 주의
         {
-          color: "#ffec58",
+          value: 2.3,
+          color: "#F5BF00",
           dashStyle: "shortDash",
           value: vibalertA,
           width: 1,
           label: {
             text: "주의",
-            color: "#ffec58",
+            color: "#F5BF00",
             textAlign: "left",
-            x: 330,
-            y: -3,
+            x: 350,
+            // x: 325,
+            // y: -3,
             style: {
-              color: "#ffec58",
-              fontSize: 6,
+              // color: "#F5BF00",
+              // fontSize: 5,
+              fontFamily: "Pretendard",
+              fontStyle: "normal",
+              fontWeigth: "normal",
+              fontSize: "6px",
+              // lineHeight: "10px",
+              color: "#F5BF00",
+              letterSpacing: "0px",
             },
           },
         },
         {
-          color: "#ff7600",
+          value: 4.5,
+          color: "#FF6600",
           dashStyle: "shortDash",
           value: vibalertB,
           width: 1,
           label: {
             text: "경고",
-            color: "#ff7600",
+            color: "#FF6600",
             textAlign: "left",
-            x: 330,
-            y: -3,
+            x: 350,
+            // x: 325,
+            // y: -3,
             style: {
-              color: "#ff7600",
-              fontSize: 6,
+              // color: "#FF6600",
+              // fontSize: 5,
+              // lineHeight: "10px",
+              fontFamily: "Pretendard",
+              fontStyle: "normal",
+              fontWeigth: "normal",
+              fontSize: "6px",
+              color: "#FF6600",
+              letterSpacing: "0px",
             },
           },
         },
         {
-          color: "#ff0000",
+          value: 7.1,
+          color: "#EA002C",
           dashStyle: "shortDash",
           value: vibalertC,
           width: 1,
           label: {
             text: "결함",
-            color: "#ff0000",
+            color: "#EA002C",
             textAlign: "left",
-            x: 330,
+            x: 350,
+            // x: 330,
+            // x: 325,
+            // y: -3,
             style: {
-              color: "#ff0000",
-              fontSize: 6,
+              // color: "#EA002C",
+              // fontSize: 6,
+              // lineHeight: "10px",
+              fontFamily: "Pretendard",
+              fontStyle: "normal",
+              fontWeigth: "normal",
+              fontSize: "6px",
+              color: "#EA002C",
+              letterSpacing: "0px",
             },
           },
         },

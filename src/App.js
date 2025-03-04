@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
     
     // width: 1920px;
     // height: 1080px;
-    overflow-y: auto;
+    // overflow-y: auto;
   }
   // html::line-height: 1.15;
   html::-webkit-scrollbar {

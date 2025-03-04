@@ -5,10 +5,11 @@ import EMS from "./Routes/EMS";
 import PMS from "./Routes/PMS";
 import Home from "./Routes/Home";
 import { createGlobalStyle } from "styled-components";
-
 import "./App.css";
 // font
 import pretendardRegular from "./assets/font/Pretendard-Regular.otf";
+
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 
 const GlobalStyle = createGlobalStyle`
   html, body {

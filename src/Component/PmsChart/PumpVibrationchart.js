@@ -29,8 +29,29 @@ function PumpVibrationChart(props) {
           // (x, y) 위치에 텍스트를 추가합니다.
           chart.renderer
             .text(
-              '<p style="color: #fff; font-family: Pretendard; font-weight: bold;">펌프 </p>' +
-                '<p style="color: #fff; font-family: Pretendard; font-weight: regular; font-size: 12px;">부하/반부하 총진동량</p>',
+              // '<p style="color: #fff; font-family: Pretendard; font-weight: bold;">펌프 </p>' +
+              // `<p style="color: #E7E8E9; font-family: Pretendard; font-weight: regular; font-size: 12px;">부하/반부하 총진동량</p>`,
+              `<p style="
+                text-align: left;
+                font-style: normal;
+                font-variant: normal;
+                font-weight: bold;
+                font-size: 16px;
+                line-height: 19px;
+                font-family: Pretendard;
+                letter-spacing: 0px;
+                color: #FFFFFF;
+                opacity: 1;">펌프 </p>` +
+                `<p style="text-align: left;
+                  font-style: normal;
+                  font-variant: normal;
+                  font-weight: normal;
+                  font-size: 12px;
+                  line-height: 14px;
+                  font-family: Pretendard;
+                  letter-spacing: 0px;
+                  color: #E7E8E9;
+                  opacity: 1;">부하/반부하 총진동량</p>`,
               20,
               22
             )
@@ -79,7 +100,17 @@ function PumpVibrationChart(props) {
       labelFormatter: function () {
         // <span style="color: #fff; font-family: Pretendard; font-weight: regular;"> ${this.name} </span>
         return `
-        <span style="color: #fff; font-family: Pretendard; font-weight: regular;"> ${this.name} </span>
+        <span style="
+          text-align: right;
+          font-style: normal;
+          font-variant: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 14px;
+          font-family: Pretendard;
+          letter-spacing: 0px;
+          color: #FFFFFF;
+          opacity: 1;"> ${this.name} </span>
         `;
       },
     },

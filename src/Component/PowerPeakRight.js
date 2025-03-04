@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { css } from "styled-components";
 import imgplate from "../peak_value_plate.png";
 // import imgbackground from "../power_component_background.png";
-import imgbackground from '../img/EMS/EMS-장기가압장bg@2x.png'
+import imgbackground from '../img/EMS/EMS-장기가압장bg.png'
 
 import Highcharts from "highcharts";
 import HighchartsReact from "highcharts-react-official";
@@ -13,7 +13,7 @@ import Papa from "papaparse";
 
 // import React, { useRef } from "react";
 import Draggable from "react-draggable";
-import alarm_img from "../ems-alarm.png";
+import alarm_img from "../warning.svg";
 
 const Text = css`
     position: relative;
@@ -415,82 +415,86 @@ const Overlay = styled.div`
 const Popup = styled.div`
   position: fixed; /* 스크롤과 상관없이 화면에 고정 */
   top: 40%;
-  left: 40%;
-  width: 400px;
-  padding: 15px;
-  border-radius: 13px;
-  //   background-color: rgba(61, 133, 201, 0.07); /* 어두운 반투명 오버레이 */
-//   background-color: rgb(14, 44, 70); /* 어두운 반투명 오버레이 */
-  background-color: #151F38;
-  opacity: 0.95;
+  left: 39%;
+  width: 411px;
+  height: 293px;
+  border-radius: 8px;
+  background: #0F1928 0% 0% no-repeat padding-box;
+  opacity: 1;
   z-index: 9999; /* 다른 요소보다 위에 표시 */
   box-shadow : 5px 5px 5px 0px rgba(0,0,0,0.3);
-  border: 2px solid transparent; // 보더 추가
-//   border: 2px solid #0F1928; // 보더 추가
-  border-image : linear-gradient(90deg, #3681FF 0%, #28FFF8 51%, #2CD2A2 100%) 1;
+  border: 1px solid #F5BF00;
 `;
 
 // ✅ 헤더 스타일
 const PopupHeader = styled.div`
   display: grid;
-  grid-template-columns: 15px auto;
+  grid-template-columns: 34px auto;
+  margin-top: 40px;
+  margin-left:40px;
   align-items: center;
-//   color: rgba(215, 229, 149, 0.88);
+  text-align: left;
+  letter-spacing: 0px;
   color:  #FFFFFF;
-  font-size: 27px;
-  font-weight: bold;
+  font: normal normal bold 20px/24px Pretendard;
 `;
 
 // ✅ 헤더 이미지 스타일
 const HeaderIcon = styled.img`
-  padding: 10px;
-  width: 35px;
-  height: 35px;
+  width: 24px;
+  height: 24px;
+`;
+
+const PopupBorder = styled.div`
+    position: relative;
+    left:40px;
+    margin-top:40px;
+    margin-bottom: 30px;
+    width: 331px;
+    height: 1px;
+    background: #27303E 0% 0% no-repeat padding-box;
+    opacity: 1;
 `;
 
 // ✅ 내용 스타일 (그리드 적용)
 const PopupContent = styled.div`
-  padding: 20px;
-  // text-align: left;
-  text-align: center;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.8);
-
-  // add
+    position:relative;
+    left : 40px;
+    width: 336px;
+    height: 36px;
+    letter-spacing: 0px;
+    text-align: left;
+  color: rgba(255, 255, 255, 1);
   display: flex;
   flex-direction: column;
-  align-items: center; // 자식 요소 가운데 정렬
-  p {
-    margin: 0; /* 기본 여백 제거 */
-    line-height: 1.5; /* 읽기 좋은 줄 간격 설정 */
+  span {
+  font: normal normal normal 14px/20px Pretendard;
+  &.y_c {
+    color:#F5BF00;
   }
-
-  /* p 태그 사이에 추가 여백을 주려면 */
-  p + p {
-    margin-top: 8px; /* 두 번째 p 태그 위에 8px 간격 추가 */
   }
+  
 `;
 
 // ✅ 닫기 버튼 스타일
 const CloseButton = styled.button`
-  margin-top: 15px;
-  padding: 10px 30px;
-  //   background: rgb(3, 55, 107); // ✅ 파란색 버튼
-  // color: rgb(208, 217, 226);
-  //   background-color: #ffffff;
-  background-color: rgb(238, 187, 47);
-  //   color: #0c2d48; /* 배경과 같은 계열의 진한 블루로 텍스트 색상 */
-  //   background-color: #0a2a3b;
-  color: #ffffff;
+    position: relative;
+    top:50px;
+    width: 86px;
+    height: 32px;
+//   margin-top: 15px;
+//   padding: 10px 30px;
+  background: #3F4753 0% 0% no-repeat padding-box;
+    border: 1px solid #6F757E;
+    border-radius: 8px;
   align-items: flex-center; // 오른쪽 정렬
-  border: none;
-  border-radius: 6px;
   cursor: pointer;
-  font-size: 14px;
+    font: normal normal normal 14px/30px Pretendard;
+    color: #9FA3A9;
   transition: 0.3s;
   &:hover {
-    // background: rgba(3, 112, 228, 0.91); // ✅ 마우스 오버 시 색상 변경
-    background-color: rgb(228, 204, 144); /* 살짝 어둡게 */
+    background: #6F757E 0% 0% no-repeat padding-box;
+    border: 1px solid #9FA3A9;
   }
 `;
 
@@ -988,14 +992,14 @@ function PowerPeakRight() {
                                 <HeaderIcon src={alarm_img} alt="icon" />
                                 최대전력수요 초과
                             </PopupHeader>
-
+                            <PopupBorder></PopupBorder>
                             {/* ✅ 내용 부분 */}
                             <PopupContent>
                                 {/* <p>현재 사용량({gjpowervalue}kW)이 30분 후에</p> */}
-                                <p>현재 전력사용량이 30분 후에에</p>
-                                <p>최대전력수요전력({gjpeakvalue}kW)을 초과할 것으로 예측됨</p>
-                                <CloseButton onClick={PopupClose}>닫기</CloseButton>
+                                <span>현재 전력사용량이 30분 후에<br/></span>
+                                <span><span class="y_c">최대전력수요({gjpeakvalue}kW)</span>를 초과할 것으로로 예측됩니다.</span>
                             </PopupContent>
+                                <CloseButton onClick={PopupClose}>닫기</CloseButton>
                         </Popup>
                     </Draggable>
                 </>

@@ -8,6 +8,7 @@
     "highcharts": "^12.1.2",
     "highcharts-react-official": "^3.2.1",
     "papaparse": "^5.5.2",
+    "pretendard": "^1.3.9",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-draggable": "^4.4.6",
@@ -41,7 +42,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
-  ,
+  },
   "homepage": "https://jis-team.github.io/exhibition_EMS_PMS_with_GJ/"
 }

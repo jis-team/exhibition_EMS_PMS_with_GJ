@@ -5,8 +5,9 @@ import EMS from "./Routes/EMS";
 import PMS from "./Routes/PMS";
 import Home from "./Routes/Home";
 import { createGlobalStyle } from "styled-components";
-
 import "./App.css";
+
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 
 const GlobalStyle = createGlobalStyle`
   html, body {

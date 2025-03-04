@@ -28,8 +28,8 @@ const Timer = styled.div`
   // white-space: nowrap;
   justify-content: flex-end;
   align-items: center;
-  right:40px;
-`; 
+  right: 40px;
+`;
 
 const Timertext = styled.span`
   width: 80px;
@@ -37,9 +37,9 @@ const Timertext = styled.span`
   text-align: left;
   font: normal normal 20px/24px Pretendard;
   letter-spacing: 0;
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 1;
-  margin:10px;
+  margin: 10px;
 `;
 
 const Timertime = styled.span`
@@ -48,7 +48,7 @@ const Timertime = styled.span`
   text-align: left;
   font: normal normal normal 20px/24px Pretendard;
   letter-spacing: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 1;
 `;
 
@@ -61,7 +61,7 @@ const Title = styled.div`
   flex-wrap: nowrap;
   // justify-content: center;
   align-items: flex-end;
-  left:40px;
+  left: 40px;
 `;
 
 const Logo = styled.img`
@@ -69,7 +69,7 @@ const Logo = styled.img`
   width: 288px;
   background-size: 0% 0%;
   background-repeat: no-repeat;
-  cursor : pointer;
+  cursor: pointer;
 `;
 
 const Login = styled.div`
@@ -87,9 +87,9 @@ const LoginBtn = styled.div`
   width: 153px;
   height: 39px;
   border: 1px solid var(---9fa3a9);
-  background: #FFFFFF33 0% 0% no-repeat padding-box;
+  background: #ffffff33 0% 0% no-repeat padding-box;
   box-shadow: 0px 3px 10px #00000033;
-  border: 1px solid #9FA3A9;
+  border: 1px solid #9fa3a9;
   border-radius: 8px;
   opacity: 1;
   // border-radius: 15px;
@@ -117,7 +117,7 @@ const LoginText = styled.span`
   text-align: left;
   font: normal normal normal 20px/24px Pretendard;
   letter-spacing: 0px;
-  color: #FFFFFF;
+  color: #ffffff;
   opacity: 1;
 `;
 
@@ -151,7 +151,7 @@ function Header() {
         <Timertime>{formatDate(currentTime)}</Timertime>
       </Timer>
       <Title>
-        <Logo src={logo}  alt="logo" onClick={() => navigate("/")} />
+        <Logo src={logo} alt="logo" onClick={() => navigate("/")} />
       </Title>
 
       <Login>
@@ -159,10 +159,10 @@ function Header() {
       <LoginText>Home</LoginText>
     </LoginBtn> */}
         <LoginBtn onClick={() => navigate("/EMS")}>
-          <LoginText>EMS</LoginText>
+          <LoginText>전력피크분석</LoginText>
         </LoginBtn>
         <LoginBtn onClick={() => navigate("/PMS")}>
-          <LoginText>PMS</LoginText>
+          <LoginText>설비정밀진단</LoginText>
         </LoginBtn>
       </Login>
     </Headerdiv>

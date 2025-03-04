@@ -217,7 +217,7 @@ function PMS() {
       /> */}
 
       <MiddleSet>
-        <TitletSetText>펌프 및 모터 - 정밀진단</TitletSetText>
+        <TitletSetText>펌프 및 모터 - 설비정밀진단</TitletSetText>
         <PumpMoterLeft
           pumpnum={parentData}
           setPumpNum={testfunction}

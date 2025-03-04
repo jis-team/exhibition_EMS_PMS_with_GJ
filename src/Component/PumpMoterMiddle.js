@@ -330,7 +330,7 @@ function PumpMoterMiddle(props) {
           <MiddleTitleLine></MiddleTitleLine>
         </MiddleTitle> */}
       <MiddleTitle>
-        <MiddleText1>{selectedPump}번 정수장</MiddleText1>
+        <MiddleText1>{selectedPump}번 </MiddleText1>
         <MiddleText2>펌프 모터</MiddleText2>
         {/* <span className="middle-text1">{selectedPump}번 정수장</span> */}
         {/* <span className="middle-text2">펌프 모터</span> */}
@@ -353,8 +353,8 @@ function PumpMoterMiddle(props) {
             {/* <PumpNameText>정수장 </PumpNameText>
             <PumpNameText>펌프모터</PumpNameText> */}
             <PumpNameText className={selectedPump === num ? "selected" : ""}>
-              정수장
-              <br />
+              {/* 정수장
+              <br /> */}
               펌프모터
               <br />
               {num}

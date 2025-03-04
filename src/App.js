@@ -11,6 +11,8 @@ import pretendardRegular from "./assets/font/Pretendard-Regular.otf";
 
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 
+import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
+
 const GlobalStyle = createGlobalStyle`
   html, body {
     // position: fixed;

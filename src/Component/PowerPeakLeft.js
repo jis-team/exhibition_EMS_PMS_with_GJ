@@ -13,7 +13,7 @@ import Papa from "papaparse";
 
 const Text = css`
     position: relative;
-    font: normal normal normal 20px/24px Pretendard;
+    font: normal normal normal 20px/24px pretendardRegular;
     letter-spacing: normal;
     text-align: left;
     color: #fff;
@@ -31,37 +31,38 @@ const Text = css`
     }
     &.amount_num{
         width: 80px;
-        font: normal normal bold 24px/29px Pretendard;
+        font: normal normal bold 24px/29px pretendardBold;
         text-align: right;
     }
     &.amount_degree{
         width: 50px;
         // font-family: Barlow;
         // font-size: 12px;
-        font: normal normal normal 16px/19px Pretendard;
+        font: normal normal normal 16px/19px pretendardRegular;
         color: #9FA3A9;
         padding: 10px 0 0 20px;
     }
     &.time_char{
-        width: 220px;
+        width: 200px;
         // text-shadow: 0 0 9px #5cafff;
         // font-size: 18px;
     }
     &.time_num{
-        width: 240px;
-        font: normal normal bold 24px/29px Pretendard;
+        left:20px;
+        width: 260px;
+        font: normal normal bold 24px/29px pretendardBold;
         text-align: left;
     }
     &.value_char{
         // text-shadow: 0 0 9px #5cafff;
         // font-size: 18px;
-        font: normal normal bold 20px/24px Pretendard;
+        font: normal normal bold 20px/24px pretendardBold;
         letter-spacing: 0px;
         color: #FFFFFF;
     }
     &.value_num{
         width: 100%;
-        font: normal normal bold 40px/48px Pretendard;
+        font: normal normal bold 40px/48px pretendardBold;
         letter-spacing: 0px;
         color: #28FFF8;
         line-height: 2.3;
@@ -81,14 +82,14 @@ const Text = css`
         // font-size: 20px;
         height: 24px;
         text-align: center;
-        font: normal normal normal 20px/24px Pretendard;
+        font: normal normal normal 20px/24px pretendardRegular;
         letter-spacing: 0px;
         color: #FFFFFF;
         left:60px;
         margin-top:15px;
     }
     &.table_char{
-        font: normal normal normal 14px/16px Pretendard;
+        font: normal normal normal 14px/16px pretendardRegular;
         letter-spacing: 0px;
         color: #E7E8E9;
         opacity: 1;
@@ -96,14 +97,14 @@ const Text = css`
     &.table_num{
         width: 70px;
         text-align: right;
-        font: normal normal bold 20px/24px Pretendard;
+        font: normal normal bold 20px/24px pretendardBold;
         letter-spacing: 0px;
         color: #CFD1D4;
         text-align: center;
     }
     &.table_degree{
         width: 20px;
-        font: normal normal normal 12px/14px Pretendard;
+        font: normal normal normal 12px/14px pretendardRegular;
         line-height: 2.4;
         color: rgba(255, 255, 255, 0.5);
         text-align: right;
@@ -173,7 +174,7 @@ const Title = styled.div`
 const TitleText = styled.span`
     position : relative;
     left:20px;
-    font: normal normal bold 20px/24px Pretendard;
+    font: normal normal bold 20px/24px pretendardBold;
     letter-spacing: 0px;
     color: #FFFFFF;
     opacity: 1;
@@ -204,7 +205,7 @@ const Container = styled.div`
 const ContainerAmount = styled(Container)`
     grid-area: amount;
     position:relative;
-    left:40px;
+    left:20px;
 `;
 
 const ContainerAmountText = styled.span`
@@ -216,7 +217,7 @@ const ContainerTime = styled(Container)`
     grid-area: time;
     align-items: flex-start;
     position:relative;
-    left:40px;
+    left:20px;
 `;
 
 const ContainerTimeText = styled.span`
@@ -226,7 +227,7 @@ const ContainerMax = styled(Container)`
     grid-area: max;
     align-items: flex-start;
     position:relative;
-    left:40px;
+    left:20px;
 `
 
 const ContainerMaxText = styled.span`
@@ -236,6 +237,7 @@ const ContainerMaxText = styled.span`
 const ContainerValue = styled(Container)`
     position: relative;
     top: 20px;
+    left: 30px;
     grid-area: value;
     flex-direction: column;
     justify-content: center;
@@ -659,7 +661,7 @@ function PowerPeakLeft() {
             <TitleBorder className='bottom'></TitleBorder>
         </Title>
         <ContainerAmount>
-            <ContainerAmountText className='amount_char'>· 현재사용량</ContainerAmountText>
+            <ContainerAmountText className='amount_char'>· 현재 사용량</ContainerAmountText>
             <ContainerAmountText className='amount_num'>{jgpowervalue}</ContainerAmountText>
             <ContainerAmountText className='amount_degree'>kW</ContainerAmountText>
         </ContainerAmount>

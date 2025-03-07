@@ -158,7 +158,7 @@ const MiddleText1 = styled.div`
   font-weight: bold;
   font-size: 28px;
   line-height: 34px;
-  font-family: Pretendard;
+  font-family: Pretendard Variable;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
@@ -172,7 +172,7 @@ const MiddleText2 = styled.div`
   font-weight: medium;
   font-size: 28px;
   line-height: 33px;
-  font-family: Pretendard;
+  font-family: Pretendard Variable;
   letter-spacing: 0px;
   color: #cfd1d4;
   opacity: 1;
@@ -248,7 +248,7 @@ const PumpChoice = styled.div`
 
 const PumpNameText = styled.span`
   ${Text}
-  font-family: Pretendard;
+  font-family: Pretendard Variable;
   user-select: none;
   cursor: pointer;
 

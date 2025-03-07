@@ -21,7 +21,7 @@ import alertC from "../img/alertC.svg";
 
 const Text = css`
   position: relative;
-  font-family: Pretendard;
+  font-family: Pretendard Variable;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;

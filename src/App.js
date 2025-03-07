@@ -8,6 +8,7 @@ import { createGlobalStyle } from "styled-components";
 import "./App.css";
 // font
 import pretendardRegular from "./assets/font/Pretendard-Regular.otf";
+import pretendardBold from "./assets/font/Pretendard-Bold.otf";
 
 import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
 
@@ -31,7 +32,11 @@ const GlobalFont = createGlobalStyle`
      @font-face {
         font-family: "pretendardRegular";
         src: url(${pretendardRegular}) format("opentype"); 
-        font-weight: 400;
+        // font-weight: 400;
+    }
+    @font-face {
+      font-family: "pretendardBold";
+      src: url(${pretendardBold}) format("opentype"); 
     }
 `;
 

@@ -35,7 +35,7 @@ const Timertext = styled.span`
   width: 80px;
   height: 24px;
   text-align: left;
-  font: normal normal 20px/24px Pretendard;
+  font: normal normal 20px/24px pretendardRegular;
   letter-spacing: 0;
   color: #ffffff;
   opacity: 1;
@@ -43,10 +43,11 @@ const Timertext = styled.span`
 `;
 
 const Timertime = styled.span`
-  width: 188px;
+  width: 200px;
   height: 24px;
   text-align: left;
-  font: normal normal normal 20px/24px Pretendard;
+  // font-family:pretendardRegular;
+  font: normal normal normal 20px/24px pretendardRegular;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
@@ -115,7 +116,7 @@ const LoginBtn = styled.div`
 `;
 const LoginText = styled.span`
   text-align: left;
-  font: normal normal normal 20px/24px Pretendard;
+  font: normal normal normal 20px/24px pretendardRegular;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;

@@ -19,6 +19,7 @@ function PumpVibrationChart(props) {
       // height: 155,
       // width: 364,
       height: 138,
+      // width: 440,
       width: 440,
       spacing: [1, 16, 10, 12],
       // spacingLeft: 20,
@@ -36,7 +37,7 @@ function PumpVibrationChart(props) {
                 font-style: normal;
                 font-variant: normal;
                 font-weight: bold;
-                font-size: 16px;
+                font-size: 18px;
                 line-height: 19px;
                 font-family: Pretendard;
                 letter-spacing: 0px;
@@ -46,7 +47,7 @@ function PumpVibrationChart(props) {
                   font-style: normal;
                   font-variant: normal;
                   font-weight: normal;
-                  font-size: 12px;
+                  font-size: 14px;
                   line-height: 14px;
                   font-family: Pretendard;
                   letter-spacing: 0px;

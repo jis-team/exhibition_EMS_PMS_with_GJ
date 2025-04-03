@@ -30,7 +30,7 @@ function PumpImpellerChart(props) {
                 font-style: normal;
                 font-variant: normal;
                 font-weight: bold;
-                font-size: 16px;
+                font-size: 18px;
                 line-height: 19px;
                 font-family: Pretendard;
                 letter-spacing: 0px;
@@ -40,7 +40,7 @@ function PumpImpellerChart(props) {
                   font-style: normal;
                   font-variant: normal;
                   font-weight: normal;
-                  font-size: 12px;
+                  font-size: 14px;
                   line-height: 14px;
                   font-family: Pretendard;
                   letter-spacing: 0px;
